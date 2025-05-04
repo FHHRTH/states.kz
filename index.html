@@ -1,53 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Англоязычный колл-центр для экспорта в США | Казахстан</title>
   <meta name="description" content="Полный цикл продаж на рынок США: носители языка, CRM, аналитика. Для казахстанского бизнеса.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --primary-color: #D4AF37;
-      --primary-light: #F5D78E;
-      --bg-dark: #121212;
-      --bg-light: #1E1E1E;
-      --text-light: #e0e0e0;
-      --text-muted: #aaa;
-      --border-color: #333;
-    }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+      background-color: #121212;
+      color: #e0e0e0;
       line-height: 1.6;
       animation: fadeIn 1.2s ease-in;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .container {
       max-width: 960px;
       margin: auto;
       padding: 2rem 1rem;
-      position: relative;
     }
-
     h1 {
       text-align: center;
-      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      font-size: 2.2rem;
       margin-bottom: 0.5rem;
-      color: var(--primary-light);
+      color: #F5D78E;
       font-weight: 700;
       position: relative;
       padding-bottom: 1rem;
     }
-
     h1:after {
       content: '';
       position: absolute;
@@ -56,88 +40,74 @@
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      background: linear-gradient(90deg, #D4AF37, #F5D78E);
     }
-
     .tagline {
       text-align: center;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      color: var(--text-muted);
+      font-size: 1.1rem;
+      color: #aaa;
       margin-bottom: 2.5rem;
       font-weight: 500;
     }
-
     .block {
-      background: var(--bg-light);
-      padding: 1.5rem;
+      background: #1E1E1E;
+      padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       margin-bottom: 2rem;
       animation: fadeIn 1s ease forwards;
-      border: 1px solid var(--border-color);
+      border: 1px solid #333;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .block:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
     }
-
     .block h2 {
       font-size: 1.4rem;
       margin-bottom: 1.2rem;
-      color: var(--primary-light);
+      color: #F5D78E;
       font-weight: 600;
       display: flex;
       align-items: center;
     }
-
     .block h2:before {
       content: '';
       display: inline-block;
       width: 8px;
       height: 20px;
-      background: linear-gradient(var(--primary-color), var(--primary-light));
+      background: linear-gradient(#D4AF37, #F5D78E);
       margin-right: 12px;
       border-radius: 4px;
     }
-
     ul {
       padding-left: 1.5rem;
       list-style-type: none;
     }
-
     li {
       margin-bottom: 0.8rem;
       position: relative;
       padding-left: 1.8rem;
       line-height: 1.5;
     }
-
     li:before {
       content: '•';
       position: absolute;
       left: 0;
-      color: var(--primary-color);
+      color: #D4AF37;
       font-size: 1.5rem;
       line-height: 1;
     }
-
     .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
+      text-align: center;
       margin-top: 2rem;
     }
-
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-      color: var(--bg-dark);
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #D4AF37, #F5D78E);
+      color: #121212;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
@@ -145,182 +115,62 @@
       box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
       border: none;
       cursor: pointer;
-      min-width: 180px;
-      text-align: center;
     }
-
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
-      background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      background: linear-gradient(135deg, #F5D78E, #D4AF37);
     }
-
-    .btn i {
-      margin-right: 8px;
-    }
-
     .testimonials {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-top: 2rem;
     }
-
     .testimonial {
       flex: 1 1 300px;
       background: #252525;
       padding: 1.5rem;
       border-radius: 8px;
-      border-left: 3px solid var(--primary-color);
+      border-left: 3px solid #D4AF37;
     }
-
     .testimonial p {
       font-style: italic;
       margin-bottom: 0.5rem;
     }
-
     .testimonial-author {
       font-weight: 600;
-      color: var(--primary-light);
+      color: #F5D78E;
     }
-
     footer {
       text-align: center;
       padding: 3rem 1rem 1rem;
       font-size: 0.9rem;
       color: #777;
       margin-top: 2rem;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid #333;
     }
-
-    /* Language switcher */
-    .lang-switcher {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 1000;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 120px;
-      gap: 4px;
-    }
-
-    .lang-btn {
-      padding: 6px 10px;
-      background: rgba(30, 30, 30, 0.9);
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-size: 0.8rem;
-      text-align: center;
-      flex: 1 1 30px;
-    }
-
-    .lang-btn:hover {
-      color: var(--primary-light);
-      border-color: var(--primary-color);
-    }
-
-    .lang-btn.active {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-      color: var(--bg-dark);
-      border-color: transparent;
-    }
-
-    /* Mobile menu button */
-    .mobile-menu-btn {
-      display: none;
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      z-index: 1000;
-      background: rgba(30, 30, 30, 0.9);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 8px;
-      color: var(--text-light);
-      cursor: pointer;
-    }
-
-    /* RTL support */
-    body[dir="rtl"] {
-      direction: rtl;
-    }
-
-    body[dir="rtl"] .block h2:before {
-      margin-right: 0;
-      margin-left: 12px;
-    }
-
-    body[dir="rtl"] li {
-      padding-left: 0;
-      padding-right: 1.8rem;
-    }
-
-    body[dir="rtl"] li:before {
-      left: auto;
-      right: 0;
-    }
-
-    body[dir="rtl"] .testimonial {
-      border-left: none;
-      border-right: 3px solid var(--primary-color);
-    }
-
-    body[dir="rtl"] .btn i {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .container {
-        padding-top: 4rem;
+        padding: 1.5rem 1rem;
       }
-      
+      h1 {
+        font-size: 1.8rem;
+      }
       .block {
-        padding: 1.2rem;
-      }
-      
-      .btn {
-        width: 100%;
-        padding: 14px 20px;
-      }
-      
-      .lang-switcher {
-        top: 10px;
-        right: 10px;
-        max-width: 100px;
-      }
-      
-      .lang-btn {
-        padding: 4px 6px;
-        font-size: 0.7rem;
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="kk">KK</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="zh">中文</button>
-      <button class="lang-btn" data-lang="ar">العربية</button>
-      <button class="lang-btn" data-lang="tr">TR</button>
-    </div>
-
-    <h1 id="main-heading">Англоязычный колл-центр для выхода на рынок США</h1>
-    <p class="tagline" id="main-tagline">Полный цикл продаж для казахстанского бизнеса: носители языка, CRM, аналитика результатов</p>
+    <h1>Англоязычный колл-центр для выхода на рынок США</h1>
+    <p class="tagline">Полный цикл продаж для казахстанского бизнеса: носители языка, CRM, аналитика результатов</p>
 
     <div class="block">
-      <h2 id="block1-heading">Комплексное решение для экспорта</h2>
-      <ul id="block1-list">
+      <h2>Комплексное решение для экспорта</h2>
+      <ul>
         <li><strong>Готовые продажи за $40,000</strong> - работаем на результат</li>
         <li><strong>Профессиональные операторы</strong> - носители английского из Африки (идеальный акцент + экономия 60%)</li>
         <li><strong>Полная автоматизация</strong> - предоставляем CRM, скрипты продаж, аналитику в реальном времени</li>
@@ -328,13 +178,13 @@
         <li><strong>Под ключ</strong> - от подбора персонала до отчетов по ROI</li>
       </ul>
       <div class="buttons">
-        <a class="btn" href="https://t.me/doizv" id="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-        <a class="btn" href="https://wa.me/77003339904" id="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a class="btn" href="https://t.me/doizv">Обсудить проект в Telegram</a>
+        <a class="btn" href="https://wa.me/77003339904">Консультация в WhatsApp</a>
       </div>
     </div>
 
     <div class="block">
-      <h2 id="block2-heading">Партнерская программа</h2>
+      <h2>Партнерская программа</h2>
       <ul>
         <li><strong>$2000 за каждого привлеченного клиента</strong> - выплаты без задержек</li>
         <li><strong>Горячее предложение</strong> - конверсия 6% благодаря отработанной методике</li>
@@ -343,347 +193,27 @@
         <li><strong>Готовые материалы</strong> - презентации, скрипты, ответы на возражения</li>
       </ul>
       <div class="buttons">
-        <a class="btn" href="https://t.me/+JgoYeT6PCDU0ZmRi" id="btn-partner"><i class="fas fa-handshake"></i> Партнерство</a>
+        <a class="btn" href="https://t.me/+JgoYeT6PCDU0ZmRi">Стать партнером</a>
       </div>
     </div>
 
     <div class="block">
-      <h2 id="block3-heading">Почему выбирают нас?</h2>
+      <h2>Почему выбирают нас?</h2>
       <div class="testimonials">
         <div class="testimonial">
-          <p id="testimonial1-text">"За 3 месяца увеличили наши продажи в США на 217%. Операторы действительно с нейтральным акцентом."</p>
-          <div class="testimonial-author" id="testimonial1-author">- Директор по экспорту, пищевая компания</div>
+          <p>"За 3 месяца увеличили наши продажи в США на 217%. Операторы действительно с нейтральным акцентом."</p>
+          <div class="testimonial-author">- Директор по экспорту, пищевая компания</div>
         </div>
         <div class="testimonial">
-          <p id="testimonial2-text">"Как партнер заработал $8000 за месяц. Все честно - выплатили ровно то, что обещали."</p>
-          <div class="testimonial-author" id="testimonial2-author">- Маркетолог, Алматы</div>
+          <p>"Как партнер заработал $8000 за месяц. Все честно - выплатили ровно то, что обещали."</p>
+          <div class="testimonial-author">- Маркетолог, Алматы</div>
         </div>
       </div>
       <div class="buttons">
-        <a class="btn" href="https://wa.me/77003339904" id="btn-contact"><i class="fas fa-envelope"></i> Контакты</a>
+        <a class="btn" href="https://wa.me/77003339904">Начать работать с нами</a>
       </div>
     </div>
   </div>
-  <footer id="footer">© 2025 states.kz | Англоязычный колл-центр для казахстанского бизнеса</footer>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Country-specific content
-      const countryContent = {
-        'KZ': {
-          testimonials: [
-            `АҚШ-тағы саудамызды 3 айда ${218 + getRandomGrowth()}% арттырдық. Операторлардың ақцені тамаша!`,
-            "Серіктес ретінде айына 8,200,000 ₸ таптым. Барлығы анық және уақытында."
-          ],
-          authors: [
-            "- Әлия, тамақ экспортеры",
-            "- Арман, онлайн-бизнес"
-          ],
-          advantages: [
-            "20,000,000 ₸ толық сату қызметі",
-            "Африкалық операторлар (160% тиімді!)",
-            "Автоматтандырылған CRM жүйесі",
-            "Ашық есеп - әр сауданы көру",
-            "Персоналдан ROI есептеріне дейін"
-          ]
-        },
-        'RU': {
-          testimonials: [
-            `За 3 месяца увеличили наши продажи в США на ${217 + getRandomGrowth()}%. Операторы действительно с нейтральным акцентом.`,
-            "Как партнер заработал $8000 за месяц. Все честно - выплатили ровно то, что обещали."
-          ],
-          authors: [
-            "- Директор по экспорту, пищевая компания",
-            "- Маркетолог, Алматы"
-          ],
-          advantages: [
-            "Готовые продажи за $40,000",
-            "Профессиональные операторы (экономия 60%)",
-            "Автоматизированная CRM система",
-            "Прозрачность - видите каждую сделку",
-            "От подбора персонала до отчетов по ROI"
-          ]
-        },
-        'US': {
-          testimonials: [
-            `Our US sales grew by ${215 + getRandomGrowth()}% in 3 months. Perfect English accent!`,
-            "As a partner earned $12,500 in first month. Reliable service."
-          ],
-          authors: [
-            "- Michael, Tech Exporter",
-            "- Sarah, E-commerce"
-          ],
-          advantages: [
-            "$40,000 complete sales service",
-            "African operators (160% cost efficient!)",
-            "Automated CRM system",
-            "Full transparency - see every deal",
-            "From staffing to ROI reports"
-          ]
-        },
-        'CN': {
-          testimonials: [
-            `我们的美国销售额在3个月内增长了${210 + getRandomGrowth()}%。完美的英语口音！`,
-            "作为合作伙伴第一个月赚了56,000元。非常可靠。"
-          ],
-          authors: [
-            "- 张经理, 食品出口",
-            "- 李女士, 电子商务"
-          ],
-          advantages: [
-            "¥280,000 完整销售服务",
-            "非洲运营商 (节省160%成本!)",
-            "自动化CRM系统",
-            "完全透明 - 查看每笔交易",
-            "从人员配置到投资回报报告"
-          ]
-        },
-        'AE': {
-          testimonials: [
-            `زادت مبيعاتنا في أمريكا بنسبة ${220 + getRandomGrowth()}٪ في 3 أشهر. لهجة مثالية!`,
-            "كشريك، ربحت 45,000 درهم في الشهر الأول. موثوق جدًا."
-          ],
-          authors: [
-            "- أحمد, تصدير المواد الغذائية",
-            "- نورا, التجارة الإلكترونية"
-          ],
-          advantages: [
-            "150,000 درهم خدمة مبيعات كاملة",
-            "عمال أفارقة (توفير 160%!)",
-            "نظام CRM آلي",
-            "شفافية كاملة - رؤية كل صفقة",
-            "من التوظيف إلى تقارير العائد"
-          ]
-        },
-        'TR': {
-          testimonials: [
-            `ABD satışlarımızı 3 ayda ${225 + getRandomGrowth()}% artırdık. Mükemmel aksan!`,
-            "Ortak olarak ilk ay 350,000₺ kazandım. Çok güvenilir."
-          ],
-          authors: [
-            "- Emre, Gıda İhracatçısı",
-            "- Ayşe, E-ticaret"
-          ],
-          advantages: [
-            "1,200,000₺ tam satış hizmeti",
-            "Afrikalı operatörler (%160 tasarruf!)",
-            "Otomatik CRM sistemi",
-            "Tam şeffaflık - her işlemi görün",
-            "Personelden ROI raporlarına"
-          ]
-        }
-      };
-
-      // Language translations
-      const translations = {
-        'kk': {
-          title: "Қоңырау орталығы | АҚШ нарығына экспорт",
-          description: "Қазақстандық бизнес үшін АҚШ нарығына толық сату шешімі",
-          heading: "АҚШ нарығына сату қызметі",
-          tagline: "Қазақстандық бизнес үшін АҚШ нарығына толық сату шешімі",
-          block1: {
-            heading: "Экспорттық шешімнің артықшылықтары",
-            btn1: "Telegram-де қоңырау",
-            btn2: "WhatsApp-те сұрақ"
-          },
-          block2: {
-            heading: "Серіктестік бағдарламасы",
-            btn: "Серіктес болу"
-          },
-          block3: {
-            heading: "Клиенттердің пікірлері",
-            btn: "Жұмысты бастау"
-          },
-          footer: "© 2025 states.kz | Қазақстандық бизнес үшін халықаралық шешімдер",
-          rtl: false
-        },
-        'ru': {
-          title: "Колл-центр | Экспорт в США",
-          description: "Полное решение для продаж на рынок США для казахстанского бизнеса",
-          heading: "Услуги по продажам в США",
-          tagline: "Полное решение для казахстанского бизнеса по выходу на рынок США",
-          block1: {
-            heading: "Преимущества экспортного решения",
-            btn1: "Связаться в Telegram",
-            btn2: "Вопрос в WhatsApp"
-          },
-          block2: {
-            heading: "Партнерская программа",
-            btn: "Стать партнером"
-          },
-          block3: {
-            heading: "Отзывы клиентов",
-            btn: "Начать работу"
-          },
-          footer: "© 2025 states.kz | Международные решения для казахстанского бизнеса",
-          rtl: false
-        },
-        'en': {
-          title: "Call Center | US Market Export",
-          description: "Complete sales solution for US market for Kazakhstani businesses",
-          heading: "US Market Sales Services",
-          tagline: "Complete solution for Kazakhstani businesses to enter US market",
-          block1: {
-            heading: "Export Solution Benefits",
-            btn1: "Contact on Telegram",
-            btn2: "Question on WhatsApp"
-          },
-          block2: {
-            heading: "Partnership Program",
-            btn: "Become a Partner"
-          },
-          block3: {
-            heading: "Client Testimonials",
-            btn: "Start Working"
-          },
-          footer: "© 2025 states.kz | International solutions for Kazakhstani business",
-          rtl: false
-        },
-        'zh': {
-          title: "呼叫中心 | 美国市场出口",
-          description: "为哈萨克斯坦企业提供完整的美国市场销售解决方案",
-          heading: "美国市场销售服务",
-          tagline: "哈萨克斯坦企业进入美国市场的完整解决方案",
-          block1: {
-            heading: "出口解决方案优势",
-            btn1: "通过Telegram联系",
-            btn2: "WhatsApp咨询"
-          },
-          block2: {
-            heading: "合作伙伴计划",
-            btn: "成为合作伙伴"
-          },
-          block3: {
-            heading: "客户评价",
-            btn: "开始合作"
-          },
-          footer: "© 2025 states.kz | 哈萨克斯坦企业的国际解决方案",
-          rtl: false
-        },
-        'ar': {
-          title: "مركز الاتصال | تصدير للسوق الأمريكي",
-          description: "حلول مبيعات كاملة للسوق الأمريكي للشركات الكازاخستانية",
-          heading: "خدمات المبيعات للسوق الأمريكي",
-          tagline: "حل متكامل للشركات الكازاخستانية لدخول السوق الأمريكي",
-          block1: {
-            heading: "مزايا حل التصدير",
-            btn1: "اتصل عبر Telegram",
-            btn2: "استفسار عبر WhatsApp"
-          },
-          block2: {
-            heading: "برنامج الشراكة",
-            btn: "كن شريكًا"
-          },
-          block3: {
-            heading: "آراء العملاء",
-            btn: "ابدأ العمل"
-          },
-          footer: "© 2025 states.kz | حلول دولية للشركات الكازاخستانية",
-          rtl: true
-        },
-        'tr': {
-          title: "Çağrı Merkezi | ABD Pazarına İhracat",
-          description: "Kazakistan işletmeleri için ABD pazarına tam satış çözümü",
-          heading: "ABD Pazarı Satış Hizmetleri",
-          tagline: "Kazakistan işletmeleri için ABD pazarına girişte tam çözüm",
-          block1: {
-            heading: "İhracat Çözümü Avantajları",
-            btn1: "Telegram'da İletişim",
-            btn2: "WhatsApp'ta Soru"
-          },
-          block2: {
-            heading: "Ortaklık Programı",
-            btn: "Ortak Olun"
-          },
-          block3: {
-            heading: "Müşteri Yorumları",
-            btn: "Çalışmaya Başla"
-          },
-          footer: "© 2025 states.kz | Kazakistan işletmeleri için uluslararası çözümler",
-          rtl: false
-        }
-      };
-
-      function getRandomGrowth() {
-        return Math.floor(Math.random() * 2) + 1;
-      }
-
-      // Set active language
-      function setActiveLanguage(lang) {
-        $('.lang-btn').removeClass('active');
-        $(`.lang-btn[data-lang="${lang}"]`).addClass('active');
-      }
-
-      // Set country content
-      function setCountry(countryCode) {
-        const country = countryContent[countryCode] || countryContent['US'];
-        
-        // Update testimonials
-        $('#testimonial1-text').text(country.testimonials[0]);
-        $('#testimonial2-text').text(country.testimonials[1]);
-        $('#testimonial1-author').text(country.authors[0]);
-        $('#testimonial2-author').text(country.authors[1]);
-        
-        // Update advantages
-        $('#block1-list li').each(function(index) {
-          $(this).html('<strong>' + country.advantages[index] + '</strong>');
-        });
-      }
-
-      // Set language
-      function setLanguage(lang) {
-        const t = translations[lang] || translations['en'];
-        
-        // Update metadata
-        document.title = t.title;
-        $('meta[name="description"]').attr('content', t.description);
-        
-        // Update content
-        $('#main-heading').text(t.heading);
-        $('#main-tagline').text(t.tagline);
-        
-        $('#block1-heading').text(t.block1.heading);
-        $('#btn-telegram').html('<i class="fab fa-telegram"></i> ' + t.block1.btn1);
-        $('#btn-whatsapp').html('<i class="fab fa-whatsapp"></i> ' + t.block1.btn2);
-        
-        $('#block2-heading').text(t.block2.heading);
-        $('#btn-partner').html('<i class="fas fa-handshake"></i> ' + t.block2.btn);
-        
-        $('#block3-heading').text(t.block3.heading);
-        $('#btn-contact').html('<i class="fas fa-envelope"></i> ' + t.block3.btn);
-        
-        $('#footer').text(t.footer);
-        
-        // Set RTL if needed
-        $('body').attr('dir', t.rtl ? 'rtl' : 'ltr');
-        document.documentElement.lang = lang;
-      }
-
-      // Language switcher
-      $('.lang-btn').click(function() {
-        const lang = $(this).data('lang');
-        const countryMap = {
-          'ru': 'RU',
-          'kk': 'KZ',
-          'en': 'US',
-          'ar': 'AE',
-          'zh': 'CN',
-          'tr': 'TR'
-        };
-        
-        setActiveLanguage(lang);
-        setCountry(countryMap[lang]);
-        setLanguage(lang);
-        
-        // Save preference
-        localStorage.setItem('preferredLang', lang);
-      });
-
-      // Initialize
-      const preferredLang = localStorage.getItem('preferredLang') || 'ru';
-      $('.lang-btn[data-lang="' + preferredLang + '"]').click();
-    });
-  </script>
+  <footer>© 2025 states.kz | Англоязычный колл-центр для казахстанского бизнеса</footer>
 </body>
 </html>
