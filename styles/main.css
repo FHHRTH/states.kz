@@ -265,3 +265,59 @@ body[dir="rtl"] .testimonial {
   border-left: none;
   border-right: 3px solid var(--primary-color);
 }
+/* Language switcher styles */
+.lang-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  background: #1E1E1E;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.lang-btn {
+  padding: 8px 12px;
+  background: transparent;
+  color: #aaa;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  color: #F5D78E;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #D4AF37, #F5D78E);
+  color: #121212;
+}
+
+/* RTL support */
+body[dir="rtl"] {
+  direction: rtl;
+}
+
+body[dir="rtl"] .block h2:before {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+body[dir="rtl"] li {
+  padding-left: 0;
+  padding-right: 1.8rem;
+}
+
+body[dir="rtl"] li:before {
+  left: auto;
+  right: 0;
+}
+
+body[dir="rtl"] .testimonial {
+  border-left: none;
+  border-right: 3px solid #D4AF37;
+}
