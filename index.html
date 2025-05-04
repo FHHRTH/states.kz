@@ -4,225 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Колл-центр под ключ для США | Казахстан</title>
-  <meta name="description" content="Готовый колл-центр для экспорта товаров из Казахстана в США. Продажи, CRM, аналитика, носители языка.">
-  <meta property="og:title" content="Колл-центр под ключ для США | Казахстан">
-  <meta property="og:description" content="Полный цикл продаж на рынок США: англоязычные операторы, CRM, аналитика. Для казахстанского бизнеса.">
-  <meta property="og:url" content="https://fhhrth.github.io/states.kz/">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-      line-height: 1.6;
-      animation: fadeIn 1.2s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: #F5D78E;
-      font-weight: 700;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-    h1:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, #D4AF37, #F5D78E);
-    }
-    .tagline {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #aaa;
-      margin-bottom: 2.5rem;
-      font-weight: 500;
-    }
-    .block {
-      background: #1E1E1E;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      margin-bottom: 2rem;
-      animation: fadeIn 1s ease forwards;
-      border: 1px solid #333;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .block:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
-    }
-    .block h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-      color: #F5D78E;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-    }
-    .block h2:before {
-      content: '';
-      display: inline-block;
-      width: 8px;
-      height: 20px;
-      background: linear-gradient(#D4AF37, #F5D78E);
-      margin-right: 12px;
-      border-radius: 4px;
-    }
-    ul {
-      padding-left: 1.5rem;
-      list-style-type: none;
-    }
-    li {
-      margin-bottom: 0.8rem;
-      position: relative;
-      padding-left: 1.8rem;
-      line-height: 1.5;
-    }
-    li:before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #D4AF37;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-    .buttons {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .btn {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #D4AF37, #F5D78E);
-      color: #121212;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
-      background: linear-gradient(135deg, #F5D78E, #D4AF37);
-    }
-    .testimonials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .testimonial {
-      flex: 1 1 300px;
-      background: #252525;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 3px solid #D4AF37;
-    }
-    .testimonial p {
-      font-style: italic;
-      margin-bottom: 0.5rem;
-    }
-    .testimonial-author {
-      font-weight: 600;
-      color: #F5D78E;
-    }
-    footer {
-      text-align: center;
-      padding: 3rem 1rem 1rem;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 2rem;
-      border-top: 1px solid #333;
-    }
-    @media (max-width: 768px) {
-      .container {
-        padding: 1.5rem 1rem;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      .block {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Готовый колл-центр для экспорта товаров из Казахстана в США">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <div class="container">
-    <h1>Англоязычный колл-центр для выхода на рынок США</h1>
-    <p class="tagline">Полный цикл продаж для казахстанского бизнеса: носители языка, CRM, аналитика результатов</p>
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ar">العربية</button>
+      <button class="lang-btn" data-lang="zh">中文</button>
+      <button class="lang-btn" data-lang="tr">TR</button>
+    </div>
+
+    <h1 id="main-heading">Англоязычный колл-центр для выхода на рынок США</h1>
+    <p class="tagline" id="main-tagline">Полный цикл продаж для казахстанского бизнеса</p>
 
     <div class="block">
-      <h2>Комплексное решение для экспорта</h2>
-      <ul>
+      <h2 id="block1-heading">Комплексное решение для экспорта</h2>
+      <ul id="block1-list">
         <li><strong>Готовые продажи за $40,000</strong> — работаем на результат</li>
-        <li><strong>Профессиональные операторы</strong> — носители английского из Африки (идеальный акцент + экономия 60%)</li>
-        <li><strong>Полная автоматизация</strong> — предоставляем CRM, скрипты продаж, аналитику в реальном времени</li>
-        <li><strong>Прозрачность</strong> — видите каждый звонок, лид и сделку</li>
-        <li><strong>Под ключ</strong> — от подбора персонала до отчетов по ROI</li>
+        <li><strong>Профессиональные операторы</strong> — носители английского</li>
+        <li><strong>Полная автоматизация</strong> — CRM и аналитика</li>
+        <li><strong>Прозрачность</strong> — контроль каждого звонка</li>
+        <li><strong>Под ключ</strong> — от персонала до отчетов</li>
       </ul>
       <div class="buttons">
-        <a class="btn" href="https://t.me/doizv">Обсудить проект в Telegram</a>
-        <a class="btn" href="https://wa.me/77003339904">Консультация в WhatsApp</a>
+        <a class="btn" id="btn-telegram" href="https://t.me/doizv">Telegram</a>
+        <a class="btn" id="btn-whatsapp" href="https://wa.me/77003339904">WhatsApp</a>
       </div>
     </div>
 
     <div class="block">
-      <h2>Партнерская программа</h2>
-      <ul>
-        <li><strong>$2000 за каждого привлеченного клиента</strong> — выплаты без задержек</li>
-        <li><strong>Горячее предложение</strong> — конверсия 6% благодаря отработанной методике</li>
-        <li><strong>Бонус +$500</strong> первым 3 партнерам</li>
-        <li><strong>Полная поддержка</strong> — мы сами ведем переговоры и закрываем сделки</li>
-        <li><strong>Готовые материалы</strong> — презентации, скрипты, ответы на возражения</li>
+      <h2 id="block2-heading">Партнерская программа</h2>
+      <ul id="block2-list">
+        <li><strong>$2000 за клиента</strong> — быстрые выплаты</li>
+        <li><strong>Конверсия 6%</strong> — проверенная методика</li>
+        <li><strong>Бонус +$500</strong> первым партнерам</li>
+        <li><strong>Полная поддержка</strong> — на всех этапах</li>
+        <li><strong>Готовые материалы</strong> — для работы</li>
       </ul>
       <div class="buttons">
-        <a class="btn" href="https://t.me/+JgoYeT6PCDU0ZmRi">Стать партнером</a>
+        <a class="btn" id="btn-partner" href="https://t.me/+JgoYeT6PCDU0ZmRi">Партнерство</a>
       </div>
     </div>
 
     <div class="block">
-      <h2>Почему выбирают нас?</h2>
+      <h2 id="block3-heading">Отзывы клиентов</h2>
       <div class="testimonials">
         <div class="testimonial">
-          <p>"За 3 месяца увеличили наши продажи в США на 217%. Операторы действительно с нейтральным акцентом."</p>
-          <div class="testimonial-author">— Директор по экспорту, пищевая компания</div>
+          <p id="testimonial1-text">"Рост продаж на 217% за 3 месяца"</p>
+          <div class="testimonial-author" id="testimonial1-author">— Директор компании</div>
         </div>
         <div class="testimonial">
-          <p>"Как партнер заработал $8000 за месяц. Все честно — выплатили ровно то, что обещали."</p>
-          <div class="testimonial-author">— Маркетолог, Алматы</div>
+          <p id="testimonial2-text">"Заработал $8000 за первый месяц"</p>
+          <div class="testimonial-author" id="testimonial2-author">— Маркетолог</div>
         </div>
       </div>
       <div class="buttons">
-        <a class="btn" href="https://wa.me/77003339904">Начать работать с нами</a>
+        <a class="btn" id="btn-contact" href="https://wa.me/77003339904">Начать</a>
       </div>
     </div>
   </div>
-  <footer>© 2025 states.kz | Англоязычный колл-центр для казахстанского бизнеса</footer>
+  <footer id="footer">© 2025 states.kz</footer>
 
-  <!-- Скрипты -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="scripts/translations.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 </html>
