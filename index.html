@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Англоязычный колл-центр для экспорта в США | Казахстан</title>
-  <meta name="description" content="Полный цикл продаж на рынок США: носители языка, CRM, аналитика. Для казахстанского бизнеса.">
+  <title>Англоязычный колл-центр для экспорта | США, Канада, Австралия</title>
+  <meta name="description" content="Полный цикл продаж на англоязычные рынки: носители языка, CRM, аналитика. Для международного бизнеса.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
@@ -164,6 +164,141 @@
       color: #F5D78E;
       margin-bottom: 0.5rem;
     }
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .market-card {
+      background: #252525;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      transition: all 0.3s ease;
+    }
+    .market-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+      border-color: #D4AF37;
+    }
+    .market-flag {
+      width: 60px;
+      height: 40px;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .usa-flag {
+      background: linear-gradient(to bottom, 
+        #B22234 0%, #B22234 40%, 
+        #FFFFFF 40%, #FFFFFF 60%, 
+        #B22234 60%, #B22234 100%);
+      position: relative;
+    }
+    .usa-flag:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 40px;
+      background: #3C3B6E;
+    }
+    .canada-flag {
+      background: linear-gradient(to right, 
+        #D80621 0%, #D80621 33%, 
+        #FFFFFF 33%, #FFFFFF 66%, 
+        #D80621 66%, #D80621 100%);
+      position: relative;
+    }
+    .canada-flag:after {
+      content: "❋";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #D80621;
+      font-size: 24px;
+    }
+    .australia-flag {
+      background: #012169;
+      position: relative;
+    }
+    .australia-flag:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(to bottom, transparent 45%, #FFFFFF 45%, #FFFFFF 55%, transparent 55%),
+        linear-gradient(to right, transparent 45%, #FFFFFF 45%, #FFFFFF 55%, transparent 55%),
+        linear-gradient(150deg, transparent 45%, #FFFFFF 45%, #FFFFFF 55%, transparent 55%),
+        linear-gradient(-150deg, transparent 45%, #FFFFFF 45%, #FFFFFF 55%, transparent 55%);
+    }
+    .australia-flag:after {
+      content: "★";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFFFFF;
+      font-size: 16px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .stat-card {
+      background: #252525;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #333;
+    }
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #F5D78E;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .process-step {
+      position: relative;
+      padding-left: 3rem;
+    }
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: linear-gradient(135deg, #D4AF37, #F5D78E);
+      color: #121212;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .process-step h3 {
+      color: #F5D78E;
+      margin-bottom: 0.5rem;
+    }
     footer {
       text-align: center;
       padding: 3rem 1rem 1rem;
@@ -172,7 +307,34 @@
       margin-top: 2rem;
       border-top: 1px solid #333;
     }
-    /* Language switcher */
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .footer-section h3 {
+      color: #F5D78E;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .footer-section p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .footer-section i {
+      margin-right: 10px;
+      color: #D4AF37;
+      width: 20px;
+      text-align: center;
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
     .lang-switcher {
       position: fixed;
       top: 15px;
@@ -206,7 +368,6 @@
       color: #121212;
       border-color: transparent;
     }
-    /* RTL support */
     body[dir="rtl"] {
       direction: rtl;
     }
@@ -230,7 +391,21 @@
       margin-right: 0;
       margin-left: 8px;
     }
-    /* Responsive */
+    body[dir="rtl"] .footer-content {
+      text-align: right;
+    }
+    body[dir="rtl"] .footer-section i {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+    body[dir="rtl"] .process-step {
+      padding-left: 0;
+      padding-right: 3rem;
+    }
+    body[dir="rtl"] .step-number {
+      left: auto;
+      right: 0;
+    }
     @media (max-width: 768px) {
       .container {
         padding-top: 4rem;
@@ -246,6 +421,24 @@
         right: 10px;
         max-width: 100px;
       }
+      .markets-grid, .stats-grid, .process-steps {
+        grid-template-columns: 1fr;
+      }
+      .process-step {
+        padding-left: 0;
+        padding-top: 3.5rem;
+        text-align: center;
+      }
+      .step-number {
+        left: 50%;
+        top: 1rem;
+        transform: translateX(-50%);
+      }
+      body[dir="rtl"] .process-step {
+        padding-right: 0;
+        padding-top: 3.5rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -260,14 +453,14 @@
       <button class="lang-btn" data-lang="tr">TR</button>
     </div>
 
-    <h1 id="main-heading">Англоязычный колл-центр для выхода на рынок США</h1>
-    <p class="tagline" id="main-tagline">Полный цикл продаж для казахстанского бизнеса: носители языка, CRM, аналитика результатов</p>
+    <h1 id="main-heading">Англоязычный колл-центр для выхода на международные рынки</h1>
+    <p class="tagline" id="main-tagline">Полный цикл продаж для вашего бизнеса: США, Канада, Австралия. Носители языка, CRM, аналитика результатов</p>
 
     <div class="block">
       <h2 id="block1-heading">Комплексное решение для экспорта</h2>
       <ul id="block1-list">
         <li><strong>Готовые продажи за $40,000</strong> - работаем на результат</li>
-        <li><strong>Профессиональные операторы</strong> - носители английского из Африки (идеальный акцент + экономия 160%)</li>
+        <li><strong>Профессиональные операторы</strong> - носители английского из Африки (идеальный акцент + экономия 60%)</li>
         <li><strong>Полная автоматизация</strong> - предоставляем CRM, скрипты продаж, аналитику в реальном времени</li>
         <li><strong>Прозрачность</strong> - видите каждый звонок, лид и сделку</li>
         <li><strong>Под ключ</strong> - от подбора персонала до отчетов по ROI</li>
@@ -297,7 +490,7 @@
       <h2 id="block3-heading">Почему выбирают нас?</h2>
       <div class="testimonials" id="business-testimonials">
         <div class="testimonial">
-          <p>"За 3 месяца увеличили наши продажи в США на 217%. Операторы действительно с нейтральным акцентом."</p>
+          <p>"За 3 месяца увеличили наши продажи в США и Канаде на 217%. Операторы действительно с нейтральным акцентом."</p>
           <div class="testimonial-author">- Директор по экспорту, пищевая компания</div>
         </div>
         <div class="testimonial">
@@ -309,8 +502,113 @@
         <a class="btn" href="https://wa.me/77003339904" id="btn-contact"><i class="fas fa-envelope"></i> Контакты</a>
       </div>
     </div>
+
+    <div class="block">
+      <h2 id="block4-heading"><i class="fas fa-globe-americas" style="margin-right: 10px;"></i>Наши целевые рынки</h2>
+      <div class="markets-grid" id="markets-grid">
+        <div class="market-card">
+          <div class="market-flag usa-flag"></div>
+          <h3>США</h3>
+          <ul>
+            <li>Крупнейший потребительский рынок</li>
+            <li>Готовые базы B2B-клиентов</li>
+            <li>Специализация по всем штатам</li>
+          </ul>
+        </div>
+        <div class="market-card">
+          <div class="market-flag canada-flag"></div>
+          <h3>Канада</h3>
+          <ul>
+            <li>Лояльность к импортным товарам</li>
+            <li>Высокий средний чек</li>
+            <li>Упрощённые таможенные процедуры</li>
+          </ul>
+        </div>
+        <div class="market-card">
+          <div class="market-flag australia-flag"></div>
+          <h3>Австралия</h3>
+          <ul>
+            <li>Растущий спрос на импорт</li>
+            <li>Высокая маржинальность</li>
+            <li>Минимальная конкуренция</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2 id="block5-heading"><i class="fas fa-chart-line" style="margin-right: 10px;"></i>Наши результаты</h2>
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">+217%</div>
+          <div class="stat-label">Средний рост продаж клиентов</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">6%</div>
+          <div class="stat-label">Конверсия в продажу</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">Дистрибьюторов в базе</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">60%</div>
+          <div class="stat-label">Экономия на операционных расходах</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block process-block">
+      <h2 id="block6-heading"><i class="fas fa-project-diagram" style="margin-right: 10px;"></i>Как мы работаем</h2>
+      <div class="process-steps" id="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Анализ продукта</h3>
+          <p>Изучаем ваш продукт и определяем его потенциал на целевых рынках</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Разработка стратегии</h3>
+          <p>Создаём индивидуальный план выхода на рынки США, Канады и Австралии</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Запуск продаж</h3>
+          <p>Начинаем активные продажи через нашу сеть дистрибьюторов</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Масштабирование</h3>
+          <p>Расширяем присутствие на новых территориях и сегментах рынка</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <footer id="footer">© 2025 states.kz | Англоязычный колл-центр для казахстанского бизнеса</footer>
+  
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 id="footer-contacts-heading">Контакты</h3>
+        <p><i class="fas fa-phone-alt"></i> <span id="footer-phone">+7 700 333 99 04</span></p>
+        <p><i class="fab fa-telegram"></i> <span id="footer-telegram">@doizv</span></p>
+        <p><i class="fab fa-whatsapp"></i> <span id="footer-whatsapp">+7 700 333 99 04</span></p>
+      </div>
+      <div class="footer-section">
+        <h3 id="footer-hours-heading">Часы работы</h3>
+        <p id="footer-weekdays">Пн-Пт: 9:00 - 18:00</p>
+        <p id="footer-weekend">Сб-Вс: выходной</p>
+      </div>
+      <div class="footer-section">
+        <h3 id="footer-legal-heading">Юридическая информация</h3>
+        <p id="footer-company">ТОО "States Export"</p>
+        <p id="footer-bin">БИН: 123456789012</p>
+      </div>
+    </div>
+    <div class="footer-bottom" id="footer-bottom">
+      © 2025 states.kz | Англоязычный колл-центр для международного бизнеса
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
@@ -318,217 +616,589 @@
     const countryContent = {
       'KZ': {
         advantages: [
-          "20,000,000 ₸ толық сату қызметі",
-          "Африкалық операторлар (160% тиімді!)",
-          "Автоматтандырылған CRM жүйесі",
-          "Ашық есеп - әр сауданы көру",
-          "Персоналдан ROI есептеріне дейін"
+          "20,000,000 ₸ толық сату қызметі - нәтижеге бағытталған",
+          "Африкалық операторлар (идеалды ақцент + 60% үнемдеу)",
+          "Автоматтандырылған CRM жүйесі - барлық үдерістерді басқару",
+          "Ашықтық - әр қоңырау, лид және мәмілені көру",
+          "Даяр шешім - қызметкерлерді іріктеуден ROI есептеріне дейін"
         ],
         partnership: [
-          "Әр клиент үшін $2000 - уақытында төлемдер",
-          "Жоғары конверсия - 6% жетістік деңгейімен дәлелденген әдіс",
+          "Әр әкелінген клиент үшін $2000 - уақытында төлемдер",
+          "Ыстық ұсыныс - жетілдірілген әдістеме арқылы 6% конверсия",
           "+$500 бонус алғашқы 3 серіктеске",
-          "Толық қолдау - келіссөздерді біз жүргіземіз",
-          "Дайын материалдар - презентациялар, сценарийлер, жауаптар"
+          "Толық қолдау - келіссөздерді біз жүргіземіз және мәмілелерді жабамыз",
+          "Дайын материалдар - презентациялар, сценарийлер, қарсылықтарға жауаптар"
         ],
         solution: {
-          title: "Қазақстандық өнімдерді АҚШ нарығына енгізу",
-          description: "Біз Қазақстандық өнімдерді АҚШ-та тарату желісін құруға маманданғанмыз. Арнайы стратегиялар:"
+          title: "Қазақстан өнімдерін халықаралық нарықтарға енгізу",
+          description: "Біз Қазақстан өнімдерін АҚШ, Канада және Австралия нарықтарына енгізуге маманданғанмыз:"
         },
         solutionItems: [
-          "АҚШ-тағы B2B клиенттер базасы бойынша белсенді қоңырау шалу және өнімді таныстыру",
+          "АҚШ, Канада және Австралиядағы B2B клиенттер базасы бойынша белсенді қоңырау шалу",
           "50+ сенімді дистрибьюторлармен тікелей байланыс орнату",
-          "Басты сатып алушылар мен байерлерге өнім презентациясын өткізу",
-          "Кері байланыс жинау және коммерциялық ұсыныстарға сұраныс алу"
+          "Өнімді халықаралық стандарттарға сәйкестендіруге көмек",
+          "Логистикалық шешімдерді ұйымдастыру және кедендік рәсімдеу"
         ],
         businessTestimonials: [
           {
-            text: `АҚШ-тағы сауда көлеміміз 4 айда ${215 + getRandomGrowth()}% өсті. Операторлардың ағылшын тіліндегі шеберлігі таң қалдырарлық!`,
+            text: `АҚШ және Канада нарықтарындағы сауда көлеміміз 4 айда ${215 + getRandomGrowth()}% өсті. Операторлардың ағылшын тіліндегі шеберлігі таң қалдырарлық!`,
             author: "- Нұрлан, AgriFood экспортеры"
           },
           {
-            text: "Біздің өнімдерді АҚШ-та сату қиын болды, бірақ бұл команда нарыққа кіруге көмектесті. 6 айда 320 мың доллар табыс!",
+            text: "Біздің өнімдерді халықаралық нарықтарға сату қиын болды, бірақ бұл команда нарыққа кіруге көмектесті. 6 айда 320 мың доллар табыс!",
             author: "- Айгүл, косметика өндірушісі"
+          }
+        ],
+        markets: [
+          {
+            name: "АҚШ",
+            items: [
+              "Ірі тұтынушылық нарық",
+              "Дайын B2B клиенттер базасы",
+              "Барлық штаттар бойынша мамандандыру"
+            ]
+          },
+          {
+            name: "Канада",
+            items: [
+              "Импорттық тауарларға адалдық",
+              "Жоғары орташа чек",
+              "Жеңілдетілген кедемдік рәсімдер"
+            ]
+          },
+          {
+            name: "Австралия",
+            items: [
+              "Импортқа деген сұраныстың өсуі",
+              "Жоғары маржиналдылық",
+              "Ең аз бәсекелестік"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "Клиенттердің сату өсімінің орташа көрсеткіші"
+          },
+          {
+            value: "6%",
+            label: "Сатуға конверсия"
+          },
+          {
+            value: "50+",
+            label: "Базадағы дистрибьюторлар"
+          },
+          {
+            value: "60%",
+            label: "Операциялық шығындарды үнемдеу"
+          }
+        ],
+        process: [
+          {
+            title: "Өнімді талдау",
+            description: "Сіздің өніміңізді зерттеп, мақсатты нарықтардағы әлеуетін анықтаймыз"
+          },
+          {
+            title: "Стратегияны әзірлеу",
+            description: "АҚШ, Канада және Австралия нарықтарына шығудың жеке жоспарын жасаймыз"
+          },
+          {
+            title: "Сатуды іске қосу",
+            description: "Біздің дистрибьюторлар желісі арқылы белсенді сатуды бастаймыз"
+          },
+          {
+            title: "Масштабтау",
+            description: "Жаңа аумақтарда және нарық сегменттерінде қатынасты кеңейтеміз"
           }
         ]
       },
       'RU': {
         advantages: [
-          "Готовые продажи за $40,000",
-          "Профессиональные операторы (экономия 160%)",
-          "Автоматизированная CRM система",
-          "Прозрачность - видите каждую сделку",
-          "От подбора персонала до отчетов по ROI"
+          "Готовые продажи за $40,000 - работаем на результат",
+          "Профессиональные операторы (идеальный акцент + экономия 60%)",
+          "Автоматизированная CRM система - полный контроль процессов",
+          "Прозрачность - видите каждый звонок, лид и сделку",
+          "Под ключ - от подбора персонала до отчетов по ROI"
         ],
         partnership: [
-          "$2000 за каждого привлеченного клиента - выплаты вовремя",
-          "Высокая конверсия - проверенная методика с 6% успеха",
+          "$2000 за каждого привлеченного клиента - выплаты без задержек",
+          "Горячее предложение - конверсия 6% благодаря проверенной методике",
           "+$500 бонус первым 3 партнерам",
-          "Полная поддержка - ведем переговоры за вас",
-          "Готовые материалы - презентации, скрипты, ответы"
+          "Полная поддержка - ведем переговоры и закрываем сделки",
+          "Готовые материалы - презентации, скрипты, ответы на возражения"
         ],
         solution: {
-          title: "Продвижение казахских товаров в США",
-          description: "Специализированные решения для казахских производителей:"
+          title: "Продвижение товаров на англоязычные рынки",
+          description: "Мы специализируемся на создании дистрибьюторской сети для товаров на рынках США, Канады и Австралии:"
         },
         solutionItems: [
-          "Холодные продажи по нашим базам B2B по США",
-          "Активный обзвон 50+ проверенных дистрибьюторов по штатам",
-          "Сбор фидбека и запросов на коммерческие предложения",
-          "Презентация продукта ключевым байерам и закупщикам"
+          "Активный обзвон по нашей базе B2B клиентов в США, Канаде и Австралии",
+          "Налаживание прямых контактов с 50+ проверенными дистрибьюторами",
+          "Помощь в адаптации продукта под международные стандарты",
+          "Организация логистических решений и таможенного оформления"
         ],
         businessTestimonials: [
           {
-            text: `Наш экспорт в США вырос на ${225 + getRandomGrowth()}% за 5 месяцев. Африканские операторы с идеальным американским акцентом!`,
+            text: `Наш экспорт в США и Канаду вырос на ${225 + getRandomGrowth()}% за 5 месяцев. Африканские операторы с идеальным английским акцентом!`,
             author: "- Сергей, производитель строительных материалов"
           },
           {
-            text: "Благодаря этому колл-центру мы нашли 12 новых дистрибьюторов в США. Оборот $540,000 за квартал!",
+            text: "Благодаря этому колл-центру мы нашли 12 новых дистрибьюторов в США и 5 в Австралии. Оборот $540,000 за квартал!",
             author: "- Елена, текстильная компания"
+          }
+        ],
+        markets: [
+          {
+            name: "США",
+            items: [
+              "Крупнейший потребительский рынок",
+              "Готовые базы B2B-клиентов",
+              "Специализация по всем штатам"
+            ]
+          },
+          {
+            name: "Канада",
+            items: [
+              "Лояльность к импортным товарам",
+              "Высокий средний чек",
+              "Упрощённые таможенные процедуры"
+            ]
+          },
+          {
+            name: "Австралия",
+            items: [
+              "Растущий спрос на импорт",
+              "Высокая маржинальность",
+              "Минимальная конкуренция"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "Средний рост продаж клиентов"
+          },
+          {
+            value: "6%",
+            label: "Конверсия в продажу"
+          },
+          {
+            value: "50+",
+            label: "Дистрибьюторов в базе"
+          },
+          {
+            value: "60%",
+            label: "Экономия на операционных расходах"
+          }
+        ],
+        process: [
+          {
+            title: "Анализ продукта",
+            description: "Изучаем ваш продукт и определяем его потенциал на целевых рынках"
+          },
+          {
+            title: "Разработка стратегии",
+            description: "Создаём индивидуальный план выхода на рынки США, Канады и Австралии"
+          },
+          {
+            title: "Запуск продаж",
+            description: "Начинаем активные продажи через нашу сеть дистрибьюторов"
+          },
+          {
+            title: "Масштабирование",
+            description: "Расширяем присутствие на новых территориях и сегментах рынка"
           }
         ]
       },
       'US': {
         advantages: [
-          "$40,000 complete sales service",
-          "African operators (160% cost efficient!)",
-          "Automated CRM system",
-          "Full transparency - see every deal",
-          "From staffing to ROI reports"
+          "$40,000 complete sales service - results driven",
+          "African operators (perfect accent + 60% savings)",
+          "Automated CRM system - full process control",
+          "Complete transparency - see every call, lead and deal",
+          "Turnkey solution - from staffing to ROI reports"
         ],
         partnership: [
           "$2000 per attracted client - timely payments",
-          "High conversion - proven method with 6% success rate",
+          "Hot offer - 6% conversion thanks to proven methodology",
           "+$500 bonus for first 3 partners",
-          "Full support - we handle negotiations",
-          "Ready materials - presentations, scripts, answers"
+          "Full support - we handle negotiations and close deals",
+          "Ready materials - presentations, scripts, objection handling"
         ],
         solution: {
-          title: "Sell Your Country’s Products in the U.S.",
-          description: "We help manufacturers from any country enter and grow in the U.S. market:"
+          title: "Market Entry Solutions for English-speaking Markets",
+          description: "We specialize in helping international businesses establish distribution in the US, Canada and Australia:"
         },
         solutionItems: [
-          "Direct outreach to buyers via our nationwide B2B call base",
-          "Active pitching to 50+ verified distributors across the U.S.",
-          "English-language marketing materials & positioning",
-          "Handling objections, follow-ups, and deal closing"
+          "Active outreach to our B2B client database in North America and Australia",
+          "Direct connections with 50+ verified distributors across all markets",
+          "Product adaptation assistance for international standards",
+          "Logistics solutions and customs clearance support"
         ],
         businessTestimonials: [
           {
-            text: `We took a local product from Morocco to the U.S. — and within 3 months, our first container was gone.`,
-            author: "- Amina, Olive Oil Exporter"
+            text: `We expanded to 7 US states and 3 Canadian provinces with ${230 + getRandomGrowth()}% revenue growth. Call center agents sound like native speakers!`,
+            author: "- David, Organic Food Producer"
           },
           {
-            text: "Our tea brand from Georgia now sells in 12 U.S. stores. Zero sales team on our side — they did all the talking.",
-            author: "- Giorgi, Specialty Tea Brand"
+            text: "As a small manufacturer, we couldn't afford international sales team. This service brought us $320K in 6 months across US and Australia!",
+            author: "- Jennifer, Home Decor Business"
+          }
+        ],
+        markets: [
+          {
+            name: "USA",
+            items: [
+              "Largest consumer market",
+              "Ready B2B client databases",
+              "Specialization across all states"
+            ]
+          },
+          {
+            name: "Canada",
+            items: [
+              "Openness to imported goods",
+              "High average order value",
+              "Simplified customs procedures"
+            ]
+          },
+          {
+            name: "Australia",
+            items: [
+              "Growing demand for imports",
+              "High profit margins",
+              "Minimal competition"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "Average client sales growth"
+          },
+          {
+            value: "6%",
+            label: "Conversion to sale"
+          },
+          {
+            value: "50+",
+            label: "Distributors in database"
+          },
+          {
+            value: "60%",
+            label: "Savings on operational costs"
+          }
+        ],
+        process: [
+          {
+            title: "Product Analysis",
+            description: "We study your product and determine its potential in target markets"
+          },
+          {
+            title: "Strategy Development",
+            description: "Create a customized market entry plan for US, Canada and Australia"
+          },
+          {
+            title: "Sales Launch",
+            description: "Begin active sales through our distributor network"
+          },
+          {
+            title: "Scaling",
+            description: "Expand presence to new territories and market segments"
           }
         ]
       },
       'CN': {
         advantages: [
-          "¥280,000 完整销售服务",
-          "非洲运营商 (节省160%成本!)",
-          "自动化CRM系统",
-          "完全透明 - 查看每笔交易",
-          "从人员配置到投资回报报告"
+          "¥280,000 完整销售服务 - 结果导向",
+          "非洲运营商 (完美口音 + 节省60%成本)",
+          "自动化CRM系统 - 全程流程控制",
+          "完全透明 - 查看每个电话、潜在客户和交易",
+          "交钥匙解决方案 - 从人员配置到投资回报报告"
         ],
         partnership: [
-          "每吸引一位客户可获 $2000 美元佣金 - 准时结算",
-          "高转化率 - 成交率6%，真实可验证",
-          "前3位合作伙伴额外奖励 $500 美元",
-          "全程支持 - 我们代为沟通与谈判",
-          "提供标准销售资料 - PPT、脚本、答疑话术"
+          "每吸引一位客户可获$2000 - 准时付款",
+          "热门优惠 - 经过验证的方法实现6%的转化率",
+          "前3位合作伙伴额外奖励$500",
+          "全面支持 - 我们负责谈判和交易",
+          "现成材料 - 演示文稿、脚本、异议处理"
         ],
         solution: {
-          title: "中国产品进入美国市场解决方案",
-          description: "我们为中国制造商量身打造一站式出口美国的市场销售服务:"
+          title: "进入英语国家市场的解决方案",
+          description: "我们专门帮助产品在美国、加拿大和澳大利亚建立分销网络:"
         },
         solutionItems: [
-          "通过美国全国B2B数据库主动联系采购商",
-          "提供英语销售资料及品牌本地化服务",
-          "代为跟进客户、获取订单、促成交易",
-          "亚马逊和沃尔玛平台整合"
+          "通过我们在北美和澳大利亚的B2B客户数据库主动联系",
+          "与50多个经过验证的经销商建立直接联系",
+          "协助产品适应国际标准",
+          "物流解决方案和清关支持"
         ],
         businessTestimonials: [
           {
-            text: `我们在6个月内将中国制造的电子产品销往美国7个州，销售额增长${340 + getRandomGrowth()}%。客服说英语如同母语！`,
+            text: `我们在6个月内将产品销往美国7个州和加拿大3个省，销售额增长${340 + getRandomGrowth()}%。客服英语如同母语！`,
             author: "- 王总，智能硬件制造商"
           },
           {
-            text: "我们公司以前从未对美国销售，有了这个服务，第一年就进入了5个州的大型超市，销售突破 $1,200,000 美元！",
-            author: "- 刘经理，调味品出口商"
+            text: "通过这项服务，我们成功进入了美国和澳大利亚市场，第一年销售额突破$1,200,000美元！",
+            author: "- 刘经理，食品出口公司"
+          }
+        ],
+        markets: [
+          {
+            name: "美国",
+            items: [
+              "最大的消费市场",
+              "现成的B2B客户数据库",
+              "覆盖所有州的专业服务"
+            ]
+          },
+          {
+            name: "加拿大",
+            items: [
+              "对进口商品开放",
+              "高客单价",
+              "简化的海关程序"
+            ]
+          },
+          {
+            name: "澳大利亚",
+            items: [
+              "对进口商品需求增长",
+              "高利润率",
+              "竞争最小化"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "客户平均销售增长"
+          },
+          {
+            value: "6%",
+            label: "销售转化率"
+          },
+          {
+            value: "50+",
+            label: "合作经销商数量"
+          },
+          {
+            value: "60%",
+            label: "运营成本节省"
+          }
+        ],
+        process: [
+          {
+            title: "产品分析",
+            description: "我们研究您的产品并确定其在目标市场的潜力"
+          },
+          {
+            title: "策略制定",
+            description: "为进入美国、加拿大和澳大利亚市场制定定制计划"
+          },
+          {
+            title: "销售启动",
+            description: "通过我们的经销商网络开始积极销售"
+          },
+          {
+            title: "规模扩展",
+            description: "将业务扩展到新地区和市场领域"
           }
         ]
       },
       'AE': {
         advantages: [
-          "150,000 درهم خدمة مبيعات كاملة",
-          "عمال أفارقة (توفير 160%!)",
-          "نظام CRM آلي",
-          "شفافية كاملة - رؤية كل صفقة",
-          "من التوظيف إلى تقارير العائد"
+          "150,000 درهم خدمة مبيعات كاملة - تركز على النتائج",
+          "عمال أفارقة (لهجة مثالية + توفير 60٪)",
+          "نظام CRM آلي - التحكم الكامل في العمليات",
+          "شفافية كاملة - رؤية كل مكالمة وسجل وصفقة",
+          "حلول جاهزة - من التوظيف إلى تقارير العائد"
         ],
         partnership: [
-          "2000 دولار عن كل عميل يتم جذبه - دفعات دقيقة في المواعيد",
-          "معدل تحويل مرتفع - طريقة مجربة بنسبة نجاح 6٪",
-          "مكافأة +500 دولار لأول 3 شركاء",
-          "دعم كامل - نتعامل مع المفاوضات",
-          "مواد جاهزة - عروض تقديمية، نصوص، إجابات"
+          "2000 دولار عن كل عميل يتم جذبه - دفعات في الوقت المحدد",
+          "عرض ساخن - معدل تحويل 6٪ بفضل منهجية مثبتة",
+          "+500 دولار مكافأة لأول 3 شركاء",
+          "دعم كامل - نتعامل مع المفاوضات ونغلق الصفقات",
+          "مواد جاهزة - عروض تقديمية، نصوص، معالجة الاعتراضات"
         ],
         solution: {
-          title: "حلول دخول السوق الأمريكي للمنتجات العربية",
-          description: "نحن نساعد الشركات من أي دولة عربية في بيع منتجاتها داخل الولايات المتحدة:"
+          title: "حلول دخول الأسواق الناطقة بالإنجليزية للمنتجات العربية",
+          description: "نحن نساعد الشركات العربية في بيع منتجاتها داخل الولايات المتحدة وكندا وأستراليا:"
         },
         solutionItems: [
-          "اتصالات مباشرة مع المشترين عبر قاعدة بياناتنا B2B الأمريكية",
+          "اتصالات مباشرة مع المشترين عبر قاعدة بياناتنا B2B في أمريكا الشمالية وأستراليا",
           "تحضير مواد تسويقية باللغة الإنجليزية وتوطين العلامة التجارية",
-          "توطين العلامة التجارية والتسويق",
-          "متابعة العملاء المحتملين وإغلاق الصفقات بالنيابة عنك"
+          "مساعدة المنتجات في التكيف مع المعايير الدولية",
+          "حلول لوجستية ودعم التخليص الجمركي"
         ],
         businessTestimonials: [
           {
-            text: `صدرنا منتجات العسل إلى 6 ولايات أمريكية، وارتفعت الإيرادات بنسبة ${280 + getRandomGrowth()}٪ خلال 4 أشهر فقط.`,
+            text: `صدرنا منتجات العسل إلى 6 ولايات أمريكية و3 مقاطعات كندية، وارتفعت الإيرادات بنسبة ${280 + getRandomGrowth()}٪ خلال 4 أشهر فقط.`,
             author: "- خالد، مصدر منتجات طبيعية"
           },
           {
-            text: "وصلنا إلى متاجر كبرى في تكساس وكاليفورنيا دون الحاجة لفريق مبيعات محلي. كل شيء تم عن طريق هذا المركز.",
+            text: "وصلنا إلى متاجر كبرى في كاليفورنيا وتورونتو وسيدني دون الحاجة لفريق مبيعات محلي. كل شيء تم عن طريق هذا المركز.",
             author: "- ليلى، صاحبة ماركة تجميل عضوية"
+          }
+        ],
+        markets: [
+          {
+            name: "الولايات المتحدة",
+            items: [
+              "أكبر سوق استهلاكي",
+              "قواعد بيانات جاهزة لعملاء B2B",
+              "تخصص في جميع الولايات"
+            ]
+          },
+          {
+            name: "كندا",
+            items: [
+              "انفتاح على السلع المستوردة",
+              "متوسط قيمة طلب مرتفع",
+              "إجراءات جمركية مبسطة"
+            ]
+          },
+          {
+            name: "أستراليا",
+            items: [
+              "نمو الطلب على الواردات",
+              "هوامش ربح عالية",
+              "حد أدنى من المنافسة"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "متوسط نمو مبيعات العملاء"
+          },
+          {
+            value: "6%",
+            label: "تحويل إلى بيع"
+          },
+          {
+            value: "50+",
+            label: "موزع في قاعدة البيانات"
+          },
+          {
+            value: "60%",
+            label: "توفير في التكاليف التشغيلية"
+          }
+        ],
+        process: [
+          {
+            title: "تحليل المنتج",
+            description: "ندرس منتجك ونحدد إمكاناته في الأسواق المستهدفة"
+          },
+          {
+            title: "تطوير الاستراتيجية",
+            description: "وضع خطة مخصصة لدخول أسواق الولايات المتحدة وكندا وأستراليا"
+          },
+          {
+            title: "إطلاق المبيعات",
+            description: "بدء المبيعات النشطة من خلال شبكة الموزعين لدينا"
+          },
+          {
+            title: "التوسع",
+            description: "توسيع التواجد في مناطق وقطاعات سوق جديدة"
           }
         ]
       },
       'TR': {
         advantages: [
-          "1.200.000₺ - anahtar teslim satış hizmeti",
-          "Afrikalı operatörler (%160 maliyet avantajı!)",
-          "Otomatik CRM sistemi ve canlı takip",
-          "Tam şeffaflık - her satış görünür",
-          "Personelden ROI raporlamasına kadar her şey bizde"
+          "1.200.000₺ tam satış hizmeti - sonuç odaklı",
+          "Afrikalı operatörler (mükemmel aksan + %60 tasarruf)",
+          "Otomatik CRM sistemi - tüm süreç kontrolü",
+          "Tam şeffaflık - her arama, potansiyel müşteri ve anlaşmayı görün",
+          "Anahtar teslim çözüm - personelden ROI raporlarına kadar"
         ],
         partnership: [
           "Her kazandırılan müşteri için $2000 - zamanında ödeme",
-          "Kanıtlanmış yöntem - %6 dönüşüm oranı",
+          "Sıcak teklif - kanıtlanmış metodoloji ile %6 dönüşüm",
           "İlk 3 ortak için +$500 bonus",
-          "Tüm görüşmeleri ve süreçleri biz yönetiyoruz",
-          "Hazır İngilizce satış materyalleri - sunumlar, senaryolar, yanıtlar"
+          "Tam destek - görüşmeleri biz yönetiyoruz ve anlaşmaları kapatıyoruz",
+          "Hazır materyaller - sunumlar, senaryolar, itiraz yönetimi"
         ],
         solution: {
-          title: "Türk Ürünleri için ABD Pazarına Giriş Çözümleri",
-          description: "Her sektörden Türk üreticileri için özel olarak tasarlanmış satış ve büyüme stratejileri:"
+          title: "Türk Ürünleri için İngilizce Konuşan Pazarlara Giriş Çözümleri",
+          description: "Türk üreticileri için ABD, Kanada ve Avustralya pazarlarına özel satış ve büyüme stratejileri:"
         },
         solutionItems: [
-          "ABD B2B veri tabanımız üzerinden doğrudan alıcılarla iletişim",
-          "Amerika genelinde 50+ doğrulanmış distribütöre aktif ürün tanıtımı",
+          "ABD, Kanada ve Avustralya'daki B2B veri tabanımız üzerinden doğrudan alıcılarla iletişim",
+          "Amerika, Kanada ve Avustralya genelinde 50+ doğrulanmış distribütöre aktif ürün tanıtımı",
           "İngilizce pazarlama materyalleri ve marka adaptasyonu",
           "Satış sonrası takip, geri dönüş ve teklif sürecinin yönetimi"
         ],
         businessTestimonials: [
           {
-            text: `Bu sistemle 4 ayda ABD’deki satışlarımızı ${240 + getRandomGrowth()}% artırdık. Arayan ekip tamamen Amerikan gibi konuşuyor.`,
+            text: `Bu sistemle 4 ayda ABD ve Kanada'daki satışlarımızı ${240 + getRandomGrowth()}% artırdık. Arayan ekip tamamen anadili İngilizce gibi konuşuyor.`,
             author: "- Mehmet, Tekstil İhracatçısı"
           },
           {
-            text: "ABD pazarına tek kuruş harcamadan ekip kurmadan girdik. 6 ayda 2.3 milyon ₺ ciro yaptık.",
+            text: "Uluslararası pazarlara tek kuruş harcamadan ekip kurmadan girdik. 6 ayda 2.3 milyon ₺ ciro yaptık.",
             author: "- Zeynep, Kozmetik Üreticisi"
+          }
+        ],
+        markets: [
+          {
+            name: "ABD",
+            items: [
+              "En büyük tüketici pazarı",
+              "Hazır B2B müşteri veritabanları",
+              "Tüm eyaletlerde uzmanlık"
+            ]
+          },
+          {
+            name: "Kanada",
+            items: [
+              "İthal ürünlere açıklık",
+              "Yüksek ortalama sipariş değeri",
+              "Basitleştirilmiş gümrük prosedürleri"
+            ]
+          },
+          {
+            name: "Avustralya",
+            items: [
+              "İthalata artan talep",
+              "Yüksek kar marjları",
+              "Minimum rekabet"
+            ]
+          }
+        ],
+        stats: [
+          {
+            value: "+217%",
+            label: "Ortalama müşteri satış büyümesi"
+          },
+          {
+            value: "6%",
+            label: "Satışa dönüşüm oranı"
+          },
+          {
+            value: "50+",
+            label: "Veritabanındaki distribütörler"
+          },
+          {
+            value: "60%",
+            label: "Operasyonel maliyetlerde tasarruf"
+          }
+        ],
+        process: [
+          {
+            title: "Ürün Analizi",
+            description: "Ürününüzü inceliyor ve hedef pazarlardaki potansiyelini belirliyoruz"
+          },
+          {
+            title: "Strateji Geliştirme",
+            description: "ABD, Kanada ve Avustralya pazarlarına özel giriş planı oluşturuyoruz"
+          },
+          {
+            title: "Satış Başlatma",
+            description: "Distribütör ağımız üzerinden aktif satışlara başlıyoruz"
+          },
+          {
+            title: "Ölçeklendirme",
+            description: "Yeni bölgelerde ve pazar segmentlerinde varlığı genişletiyoruz"
           }
         ]
       }
@@ -537,10 +1207,10 @@
     // Language translations
     const translations = {
       'kk': {
-        title: "Қоңырау орталығы | АҚШ нарығына экспорт",
-        description: "Қазақстандық бизнес үшін АҚШ нарығына толық сату шешімі",
-        heading: "АҚШ нарығына сату қызметі",
-        tagline: "Қазақстандық бизнес үшін АҚШ нарығына толық сату шешімі",
+        title: "Қоңырау орталығы | Халықаралық экспорт",
+        description: "Қазақстандық бизнес үшін АҚШ, Канада және Австралия нарықтарына толық сату шешімі",
+        heading: "Халықаралық нарықтарға сату қызметі",
+        tagline: "Қазақстандық бизнес үшін АҚШ, Канада және Австралия нарықтарына толық сату шешімі",
         block1: {
           heading: "Экспорттық шешімнің артықшылықтары",
           btn1: "Telegram-де қоңырау",
@@ -551,17 +1221,37 @@
           btn: "Серіктес болу"
         },
         block3: {
-          heading: "Почему выбирают нас?",
+          heading: "Неге бізді таңдайды?",
           btn: "Жұмысты бастау"
         },
-        footer: "© 2025 states.kz | Қазақстандық бизнес үшін халықаралық шешімдер",
-        rtl: false
+        block4: {
+          heading: "Біздің мақсатты нарықтар",
+          usa: "АҚШ",
+          canada: "Канада",
+          australia: "Австралия"
+        },
+        block5: {
+          heading: "Біздің нәтижелеріміз"
+        },
+        block6: {
+          heading: "Біз қалай жұмыс істейміз"
+        },
+        footer: {
+          contacts: "Байланыс",
+          hours: "Жұмыс уақыты",
+          legal: "Заңдық ақпарат",
+          company: 'ТОО "States Export"',
+          bin: "БСН: 123456789012",
+          copyright: "© 2025 states.kz | Халықаралық бизнес үшін ағылшын тілдік қоңырау орталығы",
+          weekdays: "Дс-Сс: 9:00 - 18:00",
+          weekend: "Сб-Жс: демалыс"
+        }
       },
       'ru': {
-        title: "Колл-центр | Экспорт в США",
-        description: "Полное решение для продаж на рынок США для казахстанского бизнеса",
-        heading: "Услуги по продажам в США",
-        tagline: "Полное решение для казахстанского бизнеса по выходу на рынок США",
+        title: "Колл-центр | Экспорт в англоязычные страны",
+        description: "Полное решение для продаж на рынки США, Канады и Австралии для международного бизнеса",
+        heading: "Услуги по продажам на международные рынки",
+        tagline: "Полное решение для бизнеса по выходу на рынки США, Канады и Австралии",
         block1: {
           heading: "Преимущества экспортного решения",
           btn1: "Связаться в Telegram",
@@ -575,14 +1265,34 @@
           heading: "Почему выбирают нас?",
           btn: "Начать работу"
         },
-        footer: "© 2025 states.kz | Международные решения для казахстанского бизнеса",
-        rtl: false
+        block4: {
+          heading: "Наши целевые рынки",
+          usa: "США",
+          canada: "Канада",
+          australia: "Австралия"
+        },
+        block5: {
+          heading: "Наши результаты"
+        },
+        block6: {
+          heading: "Как мы работаем"
+        },
+        footer: {
+          contacts: "Контакты",
+          hours: "Часы работы",
+          legal: "Юридическая информация",
+          company: 'ТОО "States Export"',
+          bin: "БИН: 123456789012",
+          copyright: "© 2025 states.kz | Англоязычный колл-центр для международного бизнеса",
+          weekdays: "Пн-Пт: 9:00 - 18:00",
+          weekend: "Сб-Вс: выходной"
+        }
       },
       'en': {
-        title: "Call Center | US Market Export",
-        description: "Complete sales solution for US market for Kazakhstani businesses",
-        heading: "US Market Sales Services",
-        tagline: "Complete solution for Kazakhstani businesses to enter US market",
+        title: "Call Center | Export to English-speaking Markets",
+        description: "Complete sales solution for US, Canada and Australia markets for international businesses",
+        heading: "International Market Sales Services",
+        tagline: "Complete solution for international businesses to enter US, Canada and Australia markets",
         block1: {
           heading: "Export Solution Benefits",
           btn1: "Contact on Telegram",
@@ -596,14 +1306,34 @@
           heading: "Why Choose Us?",
           btn: "Start Working"
         },
-        footer: "© 2025 states.kz | International solutions for Kazakhstani business",
-        rtl: false
+        block4: {
+          heading: "Our Target Markets",
+          usa: "USA",
+          canada: "Canada",
+          australia: "Australia"
+        },
+        block5: {
+          heading: "Our Results"
+        },
+        block6: {
+          heading: "How We Work"
+        },
+        footer: {
+          contacts: "Contacts",
+          hours: "Working Hours",
+          legal: "Legal Information",
+          company: '"States Export" LLP',
+          bin: "BIN: 123456789012",
+          copyright: "© 2025 states.kz | English call center for international business",
+          weekdays: "Mon-Fri: 9:00 AM - 6:00 PM",
+          weekend: "Sat-Sun: day off"
+        }
       },
       'zh': {
-        title: "呼叫中心 | 美国市场出口",
-        description: "为哈萨克斯坦企业提供完整的美国市场销售解决方案",
-        heading: "美国市场销售服务",
-        tagline: "哈萨克斯坦企业进入美国市场的完整解决方案",
+        title: "呼叫中心 | 英语国家市场出口",
+        description: "为国际企业提供的美国、加拿大和澳大利亚市场完整销售解决方案",
+        heading: "国际市场营销服务",
+        tagline: "国际企业进入美国、加拿大和澳大利亚市场的完整解决方案",
         block1: {
           heading: "出口解决方案优势",
           btn1: "通过Telegram联系",
@@ -617,14 +1347,34 @@
           heading: "为什么选择我们?",
           btn: "开始合作"
         },
-        footer: "© 2025 states.kz | 哈萨克斯坦企业的国际解决方案",
-        rtl: false
+        block4: {
+          heading: "我们的目标市场",
+          usa: "美国",
+          canada: "加拿大",
+          australia: "澳大利亚"
+        },
+        block5: {
+          heading: "我们的成果"
+        },
+        block6: {
+          heading: "我们的工作流程"
+        },
+        footer: {
+          contacts: "联系方式",
+          hours: "工作时间",
+          legal: "法律信息",
+          company: 'States Export有限责任公司',
+          bin: "商业识别号: 123456789012",
+          copyright: "© 2025 states.kz | 国际商务英语呼叫中心",
+          weekdays: "周一至周五: 9:00 - 18:00",
+          weekend: "周六周日: 休息"
+        }
       },
       'ar': {
-        title: "مركز الاتصال | تصدير للسوق الأمريكي",
-        description: "حلول مبيعات كاملة للسوق الأمريكي للشركات الكازاخستانية",
-        heading: "خدمات المبيعات للسوق الأمريكي",
-        tagline: "حل متكامل للشركات الكازاخستانية لدخول السوق الأمريكي",
+        title: "مركز الاتصال | تصدير للأسواق الناطقة بالإنجليزية",
+        description: "حلول مبيعات كاملة لأسواق الولايات المتحدة وكندا وأستراليا للشركات الدولية",
+        heading: "خدمات المبيعات للأسواق الدولية",
+        tagline: "حل متكامل للشركات الدولية لدخول أسواق الولايات المتحدة وكندا وأستراليا",
         block1: {
           heading: "مزايا حل التصدير",
           btn1: "اتصل عبر Telegram",
@@ -638,14 +1388,35 @@
           heading: "لماذا تختارنا؟",
           btn: "ابدأ العمل"
         },
-        footer: "© 2025 states.kz | حلول دولية للشركات الكازاخستانية",
+        block4: {
+          heading: "أسواقنا المستهدفة",
+          usa: "الولايات المتحدة",
+          canada: "كندا",
+          australia: "أستراليا"
+        },
+        block5: {
+          heading: "نتائجنا"
+        },
+        block6: {
+          heading: "كيف نعمل"
+        },
+        footer: {
+          contacts: "اتصل بنا",
+          hours: "ساعات العمل",
+          legal: "معلومات قانونية",
+          company: 'شركة "States Export"',
+          bin: "الرقم التعريفي: 123456789012",
+          copyright: "© 2025 states.kz | مركز اتصال باللغة الإنجليزية للأعمال الدولية",
+          weekdays: "من الاثنين إلى الجمعة: 9:00 صباحًا - 6:00 مساءً",
+          weekend: "السبت والأحد: عطلة"
+        },
         rtl: true
       },
       'tr': {
-        title: "Çağrı Merkezi | ABD Pazarına İhracat",
-        description: "Kazakistan işletmeleri için ABD pazarına tam satış çözümü",
-        heading: "ABD Pazarı Satış Hizmetleri",
-        tagline: "Kazakistan işletmeleri için ABD pazarına girişte tam çözüm",
+        title: "Çağrı Merkezi | İngilizce Konuşan Pazarlara İhracat",
+        description: "Uluslararası işletmeler için ABD, Kanada ve Avustralya pazarlarına tam satış çözümü",
+        heading: "Uluslararası Pazar Satış Hizmetleri",
+        tagline: "Uluslararası işletmeler için ABD, Kanada ve Avustralya pazarlarına girişte tam çözüm",
         block1: {
           heading: "İhracat Çözümü Avantajları",
           btn1: "Telegram'da İletişim",
@@ -659,8 +1430,28 @@
           heading: "Neden Bizi Seçmelisiniz?",
           btn: "Çalışmaya Başla"
         },
-        footer: "© 2025 states.kz | Kazakistan işletmeleri için uluslararası çözümler",
-        rtl: false
+        block4: {
+          heading: "Hedef Pazarlarımız",
+          usa: "ABD",
+          canada: "Kanada",
+          australia: "Avustralya"
+        },
+        block5: {
+          heading: "Sonuçlarımız"
+        },
+        block6: {
+          heading: "Nasıl Çalışıyoruz"
+        },
+        footer: {
+          contacts: "İletişim",
+          hours: "Çalışma Saatleri",
+          legal: "Yasal Bilgiler",
+          company: '"States Export" Ltd.',
+          bin: "Şti. No: 123456789012",
+          copyright: "© 2025 states.kz | Uluslararası işletmeler için İngilizce çağrı merkezi",
+          weekdays: "Pzt-Cuma: 9:00 - 18:00",
+          weekend: "Cmt-Paz: kapalı"
+        }
       }
     };
 
@@ -680,62 +1471,139 @@
       
       // Update advantages
       $('#block1-list li').each(function(index) {
-        $(this).html('<strong>' + country.advantages[index] + '</strong>');
+        if (country.advantages[index]) {
+          $(this).html('<strong>' + country.advantages[index] + '</strong>');
+        }
       });
       
       // Update partnership
       $('#block2-list li').each(function(index) {
-        $(this).html('<strong>' + country.partnership[index] + '</strong>');
+        if (country.partnership[index]) {
+          $(this).html('<strong>' + country.partnership[index] + '</strong>');
+        }
       });
       
       // Update country solution
-      $('#country-solution').html(`
-        <div class="country-solution">
-          <h3>${country.solution.title}</h3>
-          <p>${country.solution.description}</p>
-          <ul>
-            ${country.solutionItems.map(item => `<li>${item}</li>`).join('')}
-          </ul>
-        </div>
-      `);
+      if (country.solution) {
+        $('#country-solution').html(`
+          <div class="country-solution">
+            <h3>${country.solution.title}</h3>
+            <p>${country.solution.description}</p>
+            <ul>
+              ${country.solutionItems.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `);
+      }
       
       // Update testimonials
-      $('#business-testimonials').html(`
-        ${country.businessTestimonials.map(testimonial => `
-          <div class="testimonial">
-            <p>${testimonial.text}</p>
-            <div class="testimonial-author">${testimonial.author}</div>
-          </div>
-        `).join('')}
-      `);
+      if (country.businessTestimonials) {
+        $('#business-testimonials').html(`
+          ${country.businessTestimonials.map(testimonial => `
+            <div class="testimonial">
+              <p>${testimonial.text}</p>
+              <div class="testimonial-author">${testimonial.author}</div>
+            </div>
+          `).join('')}
+        `);
+      }
+      
+      // Update markets
+      if (country.markets) {
+        $('#markets-grid').html(`
+          ${country.markets.map(market => `
+            <div class="market-card">
+              <div class="market-flag ${market.name.toLowerCase().replace(/\s+/g, '-')}-flag"></div>
+              <h3>${market.name}</h3>
+              <ul>
+                ${market.items.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        `);
+      }
+      
+      // Update stats
+      if (country.stats) {
+        $('#stats-grid').html(`
+          ${country.stats.map(stat => `
+            <div class="stat-card">
+              <div class="stat-value">${stat.value}</div>
+              <div class="stat-label">${stat.label}</div>
+            </div>
+          `).join('')}
+        `);
+      }
+      
+      // Update process
+      if (country.process) {
+        $('#process-steps').html(`
+          ${country.process.map((step, index) => `
+            <div class="process-step">
+              <div class="step-number">${index + 1}</div>
+              <h3>${step.title}</h3>
+              <p>${step.description}</p>
+            </div>
+          `).join('')}
+        `);
+      }
     }
 
     // Set language
     function setLanguage(lang) {
       const t = translations[lang] || translations['en'];
+      const isRTL = t.rtl || false;
       
       // Update metadata
-      document.title = t.title;
-      $('meta[name="description"]').attr('content', t.description);
+      document.title = t.title || "Call Center | Export Services";
+      $('meta[name="description"]').attr('content', t.description || "Export services for international markets");
       
       // Update content
-      $('#main-heading').text(t.heading);
-      $('#main-tagline').text(t.tagline);
+      $('#main-heading').text(t.heading || "International Call Center");
+      $('#main-tagline').text(t.tagline || "Complete export solution for your business");
       
-      $('#block1-heading').text(t.block1.heading);
-      $('#btn-telegram').html('<i class="fab fa-telegram"></i> ' + t.block1.btn1);
-      $('#btn-whatsapp').html('<i class="fab fa-whatsapp"></i> ' + t.block1.btn2);
+      if (t.block1) {
+        $('#block1-heading').text(t.block1.heading || "Export Solution");
+        $('#btn-telegram').html('<i class="fab fa-telegram"></i> ' + (t.block1.btn1 || "Telegram"));
+        $('#btn-whatsapp').html('<i class="fab fa-whatsapp"></i> ' + (t.block1.btn2 || "WhatsApp"));
+      }
       
-      $('#block2-heading').text(t.block2.heading);
-      $('#btn-partner').html('<i class="fas fa-handshake"></i> ' + t.block2.btn);
+      if (t.block2) {
+        $('#block2-heading').text(t.block2.heading || "Partnership");
+        $('#btn-partner').html('<i class="fas fa-handshake"></i> ' + (t.block2.btn || "Partnership"));
+      }
       
-      $('#block3-heading').text(t.block3.heading);
-      $('#btn-contact').html('<i class="fas fa-envelope"></i> ' + t.block3.btn);
+      if (t.block3) {
+        $('#block3-heading').text(t.block3.heading || "Why Choose Us?");
+        $('#btn-contact').html('<i class="fas fa-envelope"></i> ' + (t.block3.btn || "Contact Us"));
+      }
       
-      $('#footer').text(t.footer);
+      if (t.block4) {
+        $('#block4-heading').html('<i class="fas fa-globe-americas" style="margin-right: 10px;"></i>' + (t.block4.heading || "Target Markets"));
+      }
+      
+      if (t.block5) {
+        $('#block5-heading').html('<i class="fas fa-chart-line" style="margin-right: 10px;"></i>' + (t.block5.heading || "Our Results"));
+      }
+      
+      if (t.block6) {
+        $('#block6-heading').html('<i class="fas fa-project-diagram" style="margin-right: 10px;"></i>' + (t.block6.heading || "Our Process"));
+      }
+      
+      // Update footer
+      if (t.footer) {
+        $('#footer-contacts-heading').text(t.footer.contacts || "Contacts");
+        $('#footer-hours-heading').text(t.footer.hours || "Working Hours");
+        $('#footer-legal-heading').text(t.footer.legal || "Legal Information");
+        $('#footer-company').text(t.footer.company || 'LLP "States Export"');
+        $('#footer-bin').text(t.footer.bin || "BIN: 123456789012");
+        $('#footer-bottom').text(t.footer.copyright || "© 2025 states.kz | International Call Center");
+        $('#footer-weekdays').text(t.footer.weekdays || "Mon-Fri: 9:00 - 18:00");
+        $('#footer-weekend').text(t.footer.weekend || "Sat-Sun: day off");
+      }
       
       // Set RTL if needed
-      $('body').attr('dir', t.rtl ? 'rtl' : 'ltr');
+      $('body').attr('dir', isRTL ? 'rtl' : 'ltr');
       document.documentElement.lang = lang;
     }
 
@@ -760,8 +1628,42 @@
     });
 
     // Initialize
-    const preferredLang = localStorage.getItem('preferredLang') || 'ru';
-    $('.lang-btn[data-lang="' + preferredLang + '"]').click();
+    $(document).ready(function() {
+      const preferredLang = localStorage.getItem('preferredLang') || 'ru';
+      $('.lang-btn[data-lang="' + preferredLang + '"]').click();
+      
+      // Smooth scrolling for anchor links
+      $('a[href^="#"]').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: $($.attr(this, 'href')).offset().top - 20
+        }, 500);
+      });
+      
+      // Add animation when elements come into view
+      function animateOnScroll() {
+        $('.block, .market-card, .stat-card, .process-step').each(function() {
+          const elementTop = $(this).offset().top;
+          const elementBottom = elementTop + $(this).outerHeight();
+          const viewportTop = $(window).scrollTop();
+          const viewportBottom = viewportTop + $(window).height();
+          
+          if (elementBottom > viewportTop && elementTop < viewportBottom) {
+            $(this).addClass('animate');
+          }
+        });
+      }
+      
+      // Run on load and scroll
+      $(window).on('load scroll', animateOnScroll);
+      animateOnScroll();
+    });
+
+    // Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
   </script>
 </body>
 </html>
