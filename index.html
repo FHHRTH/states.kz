@@ -132,6 +132,20 @@
             margin-top: 10px;
         }
         
+        .kaspi-btn {
+            background: linear-gradient(135deg, #00a3ff, #0066cc);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            display: none;
+        }
+        
         /* Остальные стили */
         .header {
             display: flex;
@@ -335,6 +349,10 @@
                     <input type="tel" id="phone" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="city">Город</label>
+                    <input type="text" id="city" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="address">Адрес доставки</label>
                     <input type="text" id="address" class="form-control" required>
                 </div>
@@ -342,7 +360,8 @@
                     <label for="comment">Комментарий к заказу</label>
                     <textarea id="comment" class="form-control" rows="2"></textarea>
                 </div>
-                <button type="submit" class="form-btn">ПЕРЕЙТИ К ОПЛАТЕ</button>
+                <button type="submit" class="form-btn">СОХРАНИТЬ ДАННЫЕ</button>
+                <button type="button" class="kaspi-btn" id="kaspiBtn">ОПЛАТИТЬ С KASPI</button>
             </form>
         </div>
         
@@ -401,6 +420,7 @@
             const orderBtn = document.getElementById('orderBtn');
             const orderForm = document.getElementById('orderForm');
             const orderDataForm = document.getElementById('orderDataForm');
+            const kaspiBtn = document.getElementById('kaspiBtn');
             
             // Показываем инструкцию при загрузке
             instructionScreen.style.display = 'flex';
@@ -426,39 +446,59 @@
             orderDataForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Собираем данные заказа
+                const orderData = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    city: document.getElementById('city').value,
+                    address: document.getElementById('address').value,
+                    comment: document.getElementById('comment').value || 'нет',
+                    product: 'Набор посуды 17 предметов',
+                    price: '60 000 ₸',
+                    status: 'Новая заявка (не оплачено)'
+                };
+                
+                // Отправляем данные в Telegram
+                sendOrderToTelegram(orderData);
+                
+                // Показываем кнопку оплаты
+                kaspiBtn.style.display = 'block';
+                document.querySelector('.form-btn').style.display = 'none';
+                
+                // Прокручиваем к кнопке оплаты
+                window.scrollTo({
+                    top: kaspiBtn.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Обработка кнопки Kaspi
+            kaspiBtn.addEventListener('click', function() {
                 // Сохраняем данные заказа
                 const orderData = {
                     name: document.getElementById('name').value,
                     phone: document.getElementById('phone').value,
+                    city: document.getElementById('city').value,
                     address: document.getElementById('address').value,
                     comment: document.getElementById('comment').value || 'нет',
                     product: 'Набор посуды 17 предметов',
-                    price: '60 000 ₸'
+                    price: '60 000 ₸',
+                    status: 'Ожидает оплаты'
                 };
                 
-                // Сохраняем в localStorage для использования после оплаты
-                localStorage.setItem('currentOrder', JSON.stringify(orderData));
+                // Отправляем обновлённый статус
+                sendOrderToTelegram(orderData);
                 
-                // Перенаправляем на оплату Kaspi
+                // Перенаправляем на оплату
                 window.location.href = 'https://pay.kaspi.kz/pay/p9r61lqn';
             });
-            
-            // Проверяем, вернулись ли с оплаты (это упрощённая логика)
-            // В реальном приложении нужно использовать более надёжный способ проверки оплаты
-            function checkPaymentReturn() {
-                const orderData = localStorage.getItem('currentOrder');
-                if (orderData && document.referrer.includes('kaspi.kz')) {
-                    sendOrderToTelegram(JSON.parse(orderData));
-                    localStorage.removeItem('currentOrder');
-                }
-            }
             
             // Отправка заказа в Telegram
             function sendOrderToTelegram(order) {
                 const botToken = '7597967811:AAHON_gTlGdKr2OaujwbbPF5mtvc4QD66bI';
                 const chatIds = ['8063096129'];
                 
-                const message = `✅ Оплаченный заказ:\n\nТовар: ${order.product}\nСумма: ${order.price}\nФИО: ${order.name}\nТелефон: ${order.phone}\nАдрес: ${order.address}\nКомментарий: ${order.comment}`;
+                const message = `📦 ${order.status}:\n\nТовар: ${order.product}\nСумма: ${order.price}\nФИО: ${order.name}\nТелефон: ${order.phone}\nГород: ${order.city}\nАдрес: ${order.address}\nКомментарий: ${order.comment}`;
                 
                 chatIds.forEach(chatId => {
                     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -483,6 +523,23 @@
             }
             
             // Проверяем возврат с оплаты при загрузке страницы
+            function checkPaymentReturn() {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('payment') && urlParams.get('payment') === 'success') {
+                    const orderData = {
+                        name: document.getElementById('name')?.value || 'не указано',
+                        phone: document.getElementById('phone')?.value || 'не указано',
+                        city: document.getElementById('city')?.value || 'не указано',
+                        address: document.getElementById('address')?.value || 'не указано',
+                        comment: document.getElementById('comment')?.value || 'нет',
+                        product: 'Набор посуды 17 предметов',
+                        price: '60 000 ₸',
+                        status: '✅ Оплаченный заказ'
+                    };
+                    sendOrderToTelegram(orderData);
+                }
+            }
+            
             window.addEventListener('load', checkPaymentReturn);
         });
     </script>
