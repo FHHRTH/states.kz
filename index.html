@@ -119,31 +119,24 @@
             font-size: 14px;
         }
         
-        .form-btn {
-            background: linear-gradient(135deg, #000000, #333333);
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-        }
-        
         .kaspi-btn {
             background: linear-gradient(135deg, #00a3ff, #0066cc);
             color: #fff;
             border: none;
             border-radius: 25px;
-            padding: 12px;
+            padding: 16px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
-            display: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        
+        .kaspi-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
         
         /* Остальные стили */
@@ -339,7 +332,7 @@
         <!-- Форма заказа -->
         <div class="order-form" id="orderForm">
             <h3 class="form-title">Данные для доставки</h3>
-            <form id="orderDataForm">
+            <div id="orderDataForm">
                 <div class="form-group">
                     <label for="name">ФИО</label>
                     <input type="text" id="name" class="form-control" required>
@@ -360,9 +353,8 @@
                     <label for="comment">Комментарий к заказу</label>
                     <textarea id="comment" class="form-control" rows="2"></textarea>
                 </div>
-                <button type="submit" class="form-btn">СОХРАНИТЬ ДАННЫЕ</button>
-                <button type="button" class="kaspi-btn" id="kaspiBtn">ОПЛАТИТЬ С KASPI</button>
-            </form>
+                <button class="kaspi-btn" id="kaspiBtn" disabled>ОПЛАТИТЬ С KASPI</button>
+            </div>
         </div>
         
         <div class="features">
@@ -419,8 +411,8 @@
             const readyBtn = document.getElementById('readyBtn');
             const orderBtn = document.getElementById('orderBtn');
             const orderForm = document.getElementById('orderForm');
-            const orderDataForm = document.getElementById('orderDataForm');
             const kaspiBtn = document.getElementById('kaspiBtn');
+            const formInputs = document.querySelectorAll('#orderDataForm input, #orderDataForm textarea');
             
             // Показываем инструкцию при загрузке
             instructionScreen.style.display = 'flex';
@@ -442,39 +434,24 @@
                 });
             });
             
-            // Обработка формы заказа
-            orderDataForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Собираем данные заказа
-                const orderData = {
-                    name: document.getElementById('name').value,
-                    phone: document.getElementById('phone').value,
-                    city: document.getElementById('city').value,
-                    address: document.getElementById('address').value,
-                    comment: document.getElementById('comment').value || 'нет',
-                    product: 'Набор посуды 17 предметов',
-                    price: '60 000 ₸',
-                    status: 'Новая заявка (не оплачено)'
-                };
-                
-                // Отправляем данные в Telegram
-                sendOrderToTelegram(orderData);
-                
-                // Показываем кнопку оплаты
-                kaspiBtn.style.display = 'block';
-                document.querySelector('.form-btn').style.display = 'none';
-                
-                // Прокручиваем к кнопке оплаты
-                window.scrollTo({
-                    top: kaspiBtn.offsetTop - 20,
-                    behavior: 'smooth'
-                });
+            // Включаем кнопку Kaspi при заполнении всех полей
+            formInputs.forEach(input => {
+                input.addEventListener('input', checkForm);
             });
+            
+            function checkForm() {
+                const allFilled = Array.from(formInputs).every(input => {
+                    if (input.required) {
+                        return input.value.trim() !== '';
+                    }
+                    return true;
+                });
+                kaspiBtn.disabled = !allFilled;
+            }
             
             // Обработка кнопки Kaspi
             kaspiBtn.addEventListener('click', function() {
-                // Сохраняем данные заказа
+                // Собираем данные заказа
                 const orderData = {
                     name: document.getElementById('name').value,
                     phone: document.getElementById('phone').value,
@@ -486,7 +463,7 @@
                     status: 'Ожидает оплаты'
                 };
                 
-                // Отправляем обновлённый статус
+                // Отправляем данные в Telegram
                 sendOrderToTelegram(orderData);
                 
                 // Перенаправляем на оплату
