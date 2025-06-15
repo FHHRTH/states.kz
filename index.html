@@ -120,7 +120,7 @@
         }
         
         .kaspi-btn {
-            background: linear-gradient(135deg, #00a3ff, #0066cc);
+            background: linear-gradient(135deg, #000000, #333333);
             color: #fff;
             border: none;
             border-radius: 25px;
@@ -204,32 +204,6 @@
             margin-left: 8px;
         }
         
-        .payment-notice {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 25px;
-            text-align: center;
-            padding: 0 10px;
-            line-height: 1.5;
-        }
-        
-        .action-btn {
-            background: linear-gradient(135deg, #000000, #333333);
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto 30px;
-            display: block;
-        }
-        
         .features {
             display: flex;
             justify-content: space-around;
@@ -280,10 +254,6 @@
             .current-price {
                 font-size: 22px;
             }
-            .action-btn {
-                padding: 14px;
-                font-size: 15px;
-            }
         }
     </style>
 </head>
@@ -320,38 +290,21 @@
             <span class="old-price">75 000 ₸</span>
         </div>
         
-        <p class="payment-notice">
-            Внимание: при оплате укажите <strong>точную сумму 60 000 ₸</strong>.
-            После оплаты мы свяжемся с вами для подтверждения заказа.
-        </p>
-        
-        <button class="action-btn" id="orderBtn">
-            ОФОРМИТЬ ЗАКАЗ
+        <button class="kaspi-btn" id="orderBtn">
+            ОПЛАТИТЬ С KASPI
         </button>
         
         <!-- Форма заказа -->
         <div class="order-form" id="orderForm">
-            <h3 class="form-title">Данные для доставки</h3>
+            <h3 class="form-title">Ваши данные</h3>
             <div id="orderDataForm">
                 <div class="form-group">
-                    <label for="name">ФИО</label>
+                    <label for="name">Имя и фамилия</label>
                     <input type="text" id="name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Номер телефона</label>
                     <input type="tel" id="phone" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="city">Город</label>
-                    <input type="text" id="city" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Адрес доставки</label>
-                    <input type="text" id="address" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="comment">Комментарий к заказу</label>
-                    <textarea id="comment" class="form-control" rows="2"></textarea>
                 </div>
                 <button class="kaspi-btn" id="kaspiBtn" disabled>ОПЛАТИТЬ С KASPI</button>
             </div>
@@ -412,7 +365,7 @@
             const orderBtn = document.getElementById('orderBtn');
             const orderForm = document.getElementById('orderForm');
             const kaspiBtn = document.getElementById('kaspiBtn');
-            const formInputs = document.querySelectorAll('#orderDataForm input, #orderDataForm textarea');
+            const formInputs = document.querySelectorAll('#orderDataForm input');
             
             // Показываем инструкцию при загрузке
             instructionScreen.style.display = 'flex';
@@ -424,7 +377,7 @@
                 mainContent.style.display = 'flex';
             });
             
-            // Обработка кнопки "Оформить заказ"
+            // Обработка кнопки "Оплатить с Kaspi"
             orderBtn.addEventListener('click', function() {
                 orderForm.style.display = 'block';
                 orderBtn.style.display = 'none';
@@ -441,23 +394,17 @@
             
             function checkForm() {
                 const allFilled = Array.from(formInputs).every(input => {
-                    if (input.required) {
-                        return input.value.trim() !== '';
-                    }
-                    return true;
+                    return input.value.trim() !== '';
                 });
                 kaspiBtn.disabled = !allFilled;
             }
             
-            // Обработка кнопки Kaspi
+            // Обработка кнопки Kaspi в форме
             kaspiBtn.addEventListener('click', function() {
                 // Собираем данные заказа
                 const orderData = {
                     name: document.getElementById('name').value,
                     phone: document.getElementById('phone').value,
-                    city: document.getElementById('city').value,
-                    address: document.getElementById('address').value,
-                    comment: document.getElementById('comment').value || 'нет',
                     product: 'Набор посуды 17 предметов',
                     price: '60 000 ₸',
                     status: 'Ожидает оплаты'
@@ -475,7 +422,7 @@
                 const botToken = '7597967811:AAHON_gTlGdKr2OaujwbbPF5mtvc4QD66bI';
                 const chatIds = ['8063096129'];
                 
-                const message = `📦 ${order.status}:\n\nТовар: ${order.product}\nСумма: ${order.price}\nФИО: ${order.name}\nТелефон: ${order.phone}\nГород: ${order.city}\nАдрес: ${order.address}\nКомментарий: ${order.comment}`;
+                const message = `📦 ${order.status}:\n\nТовар: ${order.product}\nСумма: ${order.price}\nИмя: ${order.name}\nТелефон: ${order.phone}`;
                 
                 chatIds.forEach(chatId => {
                     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -506,9 +453,6 @@
                     const orderData = {
                         name: document.getElementById('name')?.value || 'не указано',
                         phone: document.getElementById('phone')?.value || 'не указано',
-                        city: document.getElementById('city')?.value || 'не указано',
-                        address: document.getElementById('address')?.value || 'не указано',
-                        comment: document.getElementById('comment')?.value || 'нет',
                         product: 'Набор посуды 17 предметов',
                         price: '60 000 ₸',
                         status: '✅ Оплаченный заказ'
