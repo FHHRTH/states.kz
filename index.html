@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
         
-        /* Стили для основного контента (изначально скрыт) */
         .container {
             width: 100%;
             padding: 20px 15px;
@@ -30,7 +29,6 @@
             margin: 0 auto;
         }
         
-        /* Стили для экрана инструкции */
         .instruction-screen {
             position: fixed;
             top: 0;
@@ -85,12 +83,56 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
         
-        .ready-btn:active {
-            transform: scale(0.98);
-            opacity: 0.9;
+        /* Форма заказа */
+        .order-form {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
-        /* Остальные стили (как в предыдущих версиях) */
+        .form-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .form-btn {
+            background: linear-gradient(135deg, #000000, #333333);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Остальные стили */
         .header {
             display: flex;
             justify-content: space-between;
@@ -181,11 +223,6 @@
             display: block;
         }
         
-        .action-btn:active {
-            transform: scale(0.98);
-            opacity: 0.9;
-        }
-        
         .features {
             display: flex;
             justify-content: space-around;
@@ -244,7 +281,7 @@
     </style>
 </head>
 <body>
-    <!-- Экран инструкции (всегда показывается первым) -->
+    <!-- Экран инструкции -->
     <div class="instruction-screen" id="instructionScreen">
         <div class="instruction-content">
             <h2 class="instruction-title">Для корректной работы сайта</h2>
@@ -258,14 +295,12 @@
         </div>
     </div>
 
-    <!-- Основной контент (скрыт до подтверждения) -->
+    <!-- Основной контент -->
     <div class="container" id="mainContent">
-        <!-- Шапка -->
         <div class="header">
             <div class="logo">PREMIUM TABLEWARE</div>
         </div>
         
-        <!-- Товар -->
         <div class="product-image">
             <img src="https://i.yapx.cc/ZarGI.jpg" alt="Премиальный набор посуды">
         </div>
@@ -283,11 +318,34 @@
             После оплаты мы свяжемся с вами для подтверждения заказа.
         </p>
         
-        <button class="action-btn" onclick="window.location.href='https://pay.kaspi.kz/pay/p9r61lqn'">
-            ОПЛАТИТЬ ЧЕРЕЗ KASPI
+        <button class="action-btn" id="orderBtn">
+            ОФОРМИТЬ ЗАКАЗ
         </button>
         
-        <!-- Характеристики -->
+        <!-- Форма заказа -->
+        <div class="order-form" id="orderForm">
+            <h3 class="form-title">Данные для доставки</h3>
+            <form id="orderDataForm">
+                <div class="form-group">
+                    <label for="name">ФИО</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес доставки</label>
+                    <input type="text" id="address" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Комментарий к заказу</label>
+                    <textarea id="comment" class="form-control" rows="2"></textarea>
+                </div>
+                <button type="submit" class="form-btn">ПЕРЕЙТИ К ОПЛАТЕ</button>
+            </form>
+        </div>
+        
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">
@@ -340,16 +398,92 @@
             const instructionScreen = document.getElementById('instructionScreen');
             const mainContent = document.getElementById('mainContent');
             const readyBtn = document.getElementById('readyBtn');
+            const orderBtn = document.getElementById('orderBtn');
+            const orderForm = document.getElementById('orderForm');
+            const orderDataForm = document.getElementById('orderDataForm');
             
-            // Всегда показываем инструкцию при загрузке
+            // Показываем инструкцию при загрузке
             instructionScreen.style.display = 'flex';
             mainContent.style.display = 'none';
             
-            // Обработка нажатия кнопки "Готово"
+            // Обработка кнопки "Готово"
             readyBtn.addEventListener('click', function() {
                 instructionScreen.style.display = 'none';
                 mainContent.style.display = 'flex';
             });
+            
+            // Обработка кнопки "Оформить заказ"
+            orderBtn.addEventListener('click', function() {
+                orderForm.style.display = 'block';
+                orderBtn.style.display = 'none';
+                window.scrollTo({
+                    top: orderForm.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Обработка формы заказа
+            orderDataForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Сохраняем данные заказа
+                const orderData = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    comment: document.getElementById('comment').value || 'нет',
+                    product: 'Набор посуды 17 предметов',
+                    price: '60 000 ₸'
+                };
+                
+                // Сохраняем в localStorage для использования после оплаты
+                localStorage.setItem('currentOrder', JSON.stringify(orderData));
+                
+                // Перенаправляем на оплату Kaspi
+                window.location.href = 'https://pay.kaspi.kz/pay/p9r61lqn';
+            });
+            
+            // Проверяем, вернулись ли с оплаты (это упрощённая логика)
+            // В реальном приложении нужно использовать более надёжный способ проверки оплаты
+            function checkPaymentReturn() {
+                const orderData = localStorage.getItem('currentOrder');
+                if (orderData && document.referrer.includes('kaspi.kz')) {
+                    sendOrderToTelegram(JSON.parse(orderData));
+                    localStorage.removeItem('currentOrder');
+                }
+            }
+            
+            // Отправка заказа в Telegram
+            function sendOrderToTelegram(order) {
+                const botToken = '7597967811:AAHON_gTlGdKr2OaujwbbPF5mtvc4QD66bI';
+                const chatIds = ['8063096129'];
+                
+                const message = `✅ Оплаченный заказ:\n\nТовар: ${order.product}\nСумма: ${order.price}\nФИО: ${order.name}\nТелефон: ${order.phone}\nАдрес: ${order.address}\nКомментарий: ${order.comment}`;
+                
+                chatIds.forEach(chatId => {
+                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'HTML'
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Order sent to Telegram:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error sending to Telegram:', error);
+                    });
+                });
+            }
+            
+            // Проверяем возврат с оплаты при загрузке страницы
+            window.addEventListener('load', checkPaymentReturn);
         });
     </script>
 </body>
