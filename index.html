@@ -55,7 +55,7 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 25px;
-            color: #d32f2f;
+            color: #333;
         }
         
         .instruction-steps {
@@ -69,25 +69,7 @@
         .instruction-steps li {
             margin-bottom: 15px;
             position: relative;
-        }
-        
-        .instruction-steps li:before {
-            content: "";
-            position: absolute;
-            left: -20px;
-            top: 8px;
-            width: 8px;
-            height: 8px;
-            background: #d32f2f;
-            border-radius: 50%;
-        }
-        
-        .instruction-image {
-            width: 200px;
-            height: auto;
-            margin: 0 auto 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            list-style-type: decimal;
         }
         
         .ready-btn {
@@ -265,8 +247,7 @@
     <!-- Экран инструкции (всегда показывается первым) -->
     <div class="instruction-screen" id="instructionScreen">
         <div class="instruction-content">
-            <h2 class="instruction-title">Для корректной оплаты</h2>
-            <img src="https://i.imgur.com/JK9ClJp.png" alt="Как открыть в браузере" class="instruction-image">
+            <h2 class="instruction-title">Для корректной работы сайта</h2>
             <ol class="instruction-steps">
                 <li>Нажмите на 3 точки в правом верхнем углу</li>
                 <li>Выберите "Открыть в браузере"</li>
@@ -360,20 +341,12 @@
             const mainContent = document.getElementById('mainContent');
             const readyBtn = document.getElementById('readyBtn');
             
-            // Проверяем, было ли уже подтверждение
-            const confirmed = localStorage.getItem('browserConfirmed');
-            
-            if (confirmed) {
-                instructionScreen.style.display = 'none';
-                mainContent.style.display = 'flex';
-            } else {
-                instructionScreen.style.display = 'flex';
-                mainContent.style.display = 'none';
-            }
+            // Всегда показываем инструкцию при загрузке
+            instructionScreen.style.display = 'flex';
+            mainContent.style.display = 'none';
             
             // Обработка нажатия кнопки "Готово"
             readyBtn.addEventListener('click', function() {
-                localStorage.setItem('browserConfirmed', 'true');
                 instructionScreen.style.display = 'none';
                 mainContent.style.display = 'flex';
             });
