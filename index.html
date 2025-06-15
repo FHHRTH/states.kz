@@ -20,10 +20,76 @@
             overflow-x: hidden;
         }
         
+        .instruction-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .instruction-content {
+            max-width: 300px;
+        }
+        
+        .instruction-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .instruction-steps {
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .instruction-steps li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .instruction-steps li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #d32f2f;
+            font-size: 20px;
+        }
+        
+        .ready-btn {
+            background: linear-gradient(135deg, #000000, #333333);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .ready-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        
         .container {
             width: 100%;
             padding: 20px 15px;
-            display: flex;
+            display: none;
             flex-direction: column;
             max-width: 500px;
             margin: 0 auto;
@@ -172,11 +238,31 @@
                 padding: 14px;
                 font-size: 15px;
             }
+            .instruction-title {
+                font-size: 18px;
+            }
+            .instruction-steps {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Экран инструкции -->
+    <div class="instruction-screen" id="instructionScreen">
+        <div class="instruction-content">
+            <h2 class="instruction-title">Для корректной работы</h2>
+            <ol class="instruction-steps">
+                <li>Нажмите на 3 точки в правом верхнем углу</li>
+                <li>Выберите "Открыть в браузере"</li>
+                <li>Дождитесь полной загрузки страницы</li>
+            </ol>
+            <button class="ready-btn" id="readyBtn">ГОТОВО</button>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container" id="mainContent">
         <!-- Шапка -->
         <div class="header">
             <div class="logo">PREMIUM TABLEWARE</div>
@@ -251,5 +337,31 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const instructionScreen = document.getElementById('instructionScreen');
+            const mainContent = document.getElementById('mainContent');
+            const readyBtn = document.getElementById('readyBtn');
+            
+            // Проверяем, было ли уже подтверждение
+            const confirmed = localStorage.getItem('browserConfirmed');
+            
+            if (confirmed) {
+                instructionScreen.style.display = 'none';
+                mainContent.style.display = 'flex';
+            } else {
+                instructionScreen.style.display = 'flex';
+                mainContent.style.display = 'none';
+            }
+            
+            // Обработка нажатия кнопки "Готово"
+            readyBtn.addEventListener('click', function() {
+                localStorage.setItem('browserConfirmed', 'true');
+                instructionScreen.style.display = 'none';
+                mainContent.style.display = 'flex';
+            });
+        });
+    </script>
 </body>
 </html>
